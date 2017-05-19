@@ -65,11 +65,20 @@ await browser.close()
 
 
 # TODO: 
+- Separate the methods in the actions file in actions per Domain (see left menu: https://chromedevtools.github.io/devtools-protocol/tot/)
+
 - Add more methods:
   .waitForSelector
   .screenshot
   .waitForPageToLoad
+  .setCookie
+
+- Improve existing methods:
+  .getCookies - Should receive a cookie name and return only that one, or all the cookies if no key is specified
 
 - Bypass Certificate Errors (https://github.com/cyrus-and/chrome-remote-interface/wiki/Bypass-certificate-errors-(%22Your-connection-is-not-private%22)
+
+- Add Target domain API 
+  So we can create tabs: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-createTarget
 
 )
