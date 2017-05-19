@@ -1,0 +1,21 @@
+{
+  "search.exclude": {
+    // disable built-in rule
+    "**/node_modules": false,
+
+    // only exclude root node_modules
+    "node_modules": true
+  },
+  "files.watcherExclude": {
+    // disable built-in rule
+    "**/node_modules/**": false,
+
+    // only exclude root node_modules
+    "node_modules/**": true
+  },
+  "standard.enable": true,
+  "standard.autoFixOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "vsicons.presets.angular": false
+}
