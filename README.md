@@ -70,7 +70,6 @@ await browser.close()
 - Add more methods:
   .waitForSelector
   .screenshot
-  .waitForPageToLoad
   .setCookie
 
 - Improve existing methods:
