@@ -20,6 +20,29 @@ It's really simple to use. I hope I can get some time to make a QuickStart guide
 
 If you want to collaborate with the project, in any way, just send a PR :) 
 
+# Methods (see /lib/actions.js for method parameters and description)
+browser.evaluate()
+browser.goTo()
+browser.wait()
+browser.waitForPageToLoad()
+browser.getValue()
+browser.setValue()
+browser.fill()
+browser.clear()
+browser.querySelector()
+browser.focus()
+browser.type()
+browser.select()
+browser.keyboardEvent()
+browser.mouseEvent()
+browser.click()
+browser.getCookies()
+browser.exist()
+browser.visible()
+browser.printToPDF()
+browser.getScreenshot()
+browser.saveScreenshot()
+
 # Example
 
 const HeadlessChrome = require('simple-headless-chrome')
@@ -69,7 +92,6 @@ await browser.close()
 
 - Add more methods:
   .waitForSelector
-  .screenshot
   .setCookie
 
 - Improve existing methods:

@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/LucianoGanga/simple-headless-chrome#readme",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "chrome-remote-interface": "^0.22.0",
     "lighthouse": "^1.6.5"
   },
