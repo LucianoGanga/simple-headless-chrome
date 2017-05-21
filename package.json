@@ -34,7 +34,8 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "chrome-remote-interface": "^0.22.0",
-    "lighthouse": "^1.6.5"
+    "lighthouse": "^1.6.5",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "standard": "^10.0.2"
