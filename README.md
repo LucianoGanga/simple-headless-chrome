@@ -2,13 +2,13 @@
 
 This is an abstraction to use a Headless version of Google Chrome in a simple way.
 I was inspired by the next projects:
-- Doffy (https://github.com/qieguo2016/doffy)
-- Horseman (https://github.com/johntitus/node-horseman)
-- chrome-remote-interface (https://github.com/cyrus-and/chrome-remote-interface)
+* Doffy (https://github.com/qieguo2016/doffy)
+* Horseman (https://github.com/johntitus/node-horseman)
+* chrome-remote-interface (https://github.com/cyrus-and/chrome-remote-interface)
 
 And I had to read a lot here too:
--  https://developers.google.com/web/updates/2017/04/headless-chrome
--  https://chromedevtools.github.io/devtools-protocol 
+*  https://developers.google.com/web/updates/2017/04/headless-chrome
+*  https://chromedevtools.github.io/devtools-protocol 
 
 And you can use this in heroku thanks to https://github.com/heroku/heroku-buildpack-google-chrome
 
@@ -21,30 +21,32 @@ It's really simple to use. I hope I can get some time to make a QuickStart guide
 If you want to collaborate with the project, in any way, just send a PR :) 
 
 # Methods (see /lib/actions.js for method parameters and description)
-browser.evaluate()
-browser.goTo()
-browser.wait()
-browser.waitForPageToLoad()
-browser.getValue()
-browser.setValue()
-browser.fill()
-browser.clear()
-browser.querySelector()
-browser.focus()
-browser.type()
-browser.select()
-browser.keyboardEvent()
-browser.mouseEvent()
-browser.click()
-browser.getCookies()
-browser.exist()
-browser.visible()
-browser.printToPDF()
-browser.getScreenshot()
-browser.saveScreenshot()
+
+### `browser.evaluate()`
+### `browser.goTo()`
+### `browser.wait()`
+### `browser.waitForPageToLoad()`
+### `browser.getValue()`
+### `browser.setValue()`
+### `browser.fill()`
+### `browser.clear()`
+### `browser.querySelector()`
+### `browser.focus()`
+### `browser.type()`
+### `browser.select()`
+### `browser.keyboardEvent()`
+### `browser.mouseEvent()`
+### `browser.click()`
+### `browser.getCookies()`
+### `browser.exist()`
+### `browser.visible()`
+### `browser.printToPDF()`
+### `browser.getScreenshot()`
+### `browser.saveScreenshot()`
 
 # Example
 
+```js
 const HeadlessChrome = require('simple-headless-chrome')
 
 const browser = new HeadlessChrome({
@@ -85,21 +87,19 @@ await browser.click('#Save')
 
 // Close the browser
 await browser.close()
-
+```
 
 # TODO: 
-- Separate the methods in the actions file in actions per Domain (see left menu: https://chromedevtools.github.io/devtools-protocol/tot/)
+* Separate the methods in the actions file in actions per Domain (see left menu: https://chromedevtools.github.io/devtools-protocol/tot/)
 
-- Add more methods:
+* Add more methods:
   .waitForSelector
   .setCookie
 
-- Improve existing methods:
+* Improve existing methods:
   .getCookies - Should receive a cookie name and return only that one, or all the cookies if no key is specified
 
-- Bypass Certificate Errors (https://github.com/cyrus-and/chrome-remote-interface/wiki/Bypass-certificate-errors-(%22Your-connection-is-not-private%22)
+* Bypass Certificate Errors (https://github.com/cyrus-and/chrome-remote-interface/wiki/Bypass-certificate-errors-(%22Your-connection-is-not-private%22)
 
-- Add Target domain API 
+* Add Target domain API 
   So we can create tabs: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-createTarget
-
-)
