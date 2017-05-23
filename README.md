@@ -1,5 +1,7 @@
 # simple-headless-chrome
 
+# Introduction
+
 This is an abstraction to use a Headless version of Google Chrome in a simple way.
 I was inspired by the next projects:
 * Doffy (https://github.com/qieguo2016/doffy)
