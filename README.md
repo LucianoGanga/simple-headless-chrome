@@ -18,7 +18,8 @@ I didn't have time to document here in the readme, but every method in the sourc
 
 It's really simple to use. I hope I can get some time to make a QuickStart guide + document the API methods here. 
 
-If you want to collaborate with the project, in any way, just send a PR :) 
+# Collaboration
+If you want to collaborate with the project, in any way (documentation, examples, fixes, etc), just send a PR :) 
 
 # Methods (see /lib/actions.js for method parameters and description)
 
@@ -90,11 +91,14 @@ await browser.close()
 ```
 
 # TODO: 
-* Separate the methods in the actions file in actions per Domain (see left menu: https://chromedevtools.github.io/devtools-protocol/tot/)
+* Separate the methods in the actions file in actions per Domain (see left menu here: https://chromedevtools.github.io/devtools-protocol/tot/)
 
 * Add more methods:
   .waitForSelector
-  .setCookie
+  .setCookie (set individual cookie)
+  .setCookies (set all the cookies)
+
+* Allow adding new targets/tabs and controlling them at the same time (https://github.com/cyrus-and/chrome-remote-interface#cdpnewoptions-callback and https://github.com/cyrus-and/chrome-remote-interface/wiki/Inspect-a-new-tab)
 
 * Improve existing methods:
   .getCookies - Should receive a cookie name and return only that one, or all the cookies if no key is specified
