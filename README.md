@@ -21,6 +21,39 @@ It's really simple to use. I hope I can get some time to make a QuickStart guide
 # Collaboration
 If you want to collaborate with the project, in any way (documentation, examples, fixes, etc), just send a PR :) 
 
+# Installation
+
+## 1) Install Google Chrome Headless
+
+Mac: Chrome Headless is shipped in Chrome Canary. You can install it here: https://www.google.com/chrome/browser/canary.html
+
+Linux: Chrome headless is shipped on chrome 59. so you can install Chrome 59 to use the headless mode:
+
+https://askubuntu.com/questions/79280/how-to-install-chrome-browser-properly-via-command-line
+
+```
+sudo apt-get install libxss1 libappindicator1 libindicator7
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb  # Might show "errors", fixed by next line
+sudo apt-get install -f
+```
+## 2) Install the NPM Module
+
+```
+npm install --save --simple-headless-chrome
+```
+
+# Usage
+```js
+const HeadlessChrome = require('simple-headless-chrome')
+
+const browser = new HeadlessChrome({
+  headless: true // If you turn this off, you can actually see the browser navigate with your instructions
+})
+```
+
+Once you have the browser instance, you can call the methods to interact with it. 
+
 # Methods (see /lib/actions.js for method parameters and description)
 
 ### `browser.evaluate()`
@@ -91,6 +124,7 @@ await browser.close()
 ```
 
 # TODO: 
+* Better docs
 * Separate the methods in the actions file in actions per Domain (see left menu here: https://chromedevtools.github.io/devtools-protocol/tot/)
 
 * Add more methods:
@@ -107,3 +141,4 @@ await browser.close()
 
 * Add Target domain API 
   So we can create tabs: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-createTarget
+* Tests
