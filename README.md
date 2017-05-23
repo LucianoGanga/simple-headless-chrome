@@ -2,7 +2,7 @@
 
 # Introduction
 
-This is an abstraction to use a Headless version of Google Chrome in a simple way.
+This is an abstraction to use a Headless version of Google Chrome in a very simple way.
 I was inspired by the next projects:
 * Doffy (https://github.com/qieguo2016/doffy)
 * Horseman (https://github.com/johntitus/node-horseman)
@@ -12,7 +12,7 @@ And I had to read a lot here too:
 *  https://developers.google.com/web/updates/2017/04/headless-chrome
 *  https://chromedevtools.github.io/devtools-protocol 
 
-And you can use this in heroku thanks to https://github.com/heroku/heroku-buildpack-google-chrome
+And you can also use this in heroku thanks to https://github.com/heroku/heroku-buildpack-google-chrome
 
 I built this basically because I got tired of an error I received in an edge case when using PhantomJS (Unhandled reject Error: Failed to load url). So I decided to make my own abstraction, to be used in a heroku app, and simple to use as Horseman.
 
@@ -27,6 +27,8 @@ If you want to collaborate with the project, in any way (documentation, examples
 
 ## 1) Install Google Chrome Headless
 
+### In your PC
+
 Mac: Chrome Headless is shipped in Chrome Canary. You can install it here: https://www.google.com/chrome/browser/canary.html
 
 Linux: Chrome headless is shipped on chrome 59. so you can install Chrome 59 to use the headless mode:
@@ -39,6 +41,11 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome*.deb  # Might show "errors", fixed by next line
 sudo apt-get install -f
 ```
+
+### In a NodeJS Heroku App
+Just add the buildpack for Heroku and vualá! Everything is ready
+You can check the buildpack repository here: https://github.com/heroku/heroku-buildpack-google-chrome
+
 ## 2) Install the NPM Module
 
 ```
