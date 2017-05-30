@@ -65,12 +65,17 @@ Once you have the browser instance, you can call the methods to interact with it
 
 # Methods (see /lib/actions.js for method parameters and description)
 
+### `browser.inject()`
 ### `browser.evaluate()`
+### `browser.evaluateOnNode()`
 ### `browser.goTo()`
 ### `browser.wait()`
 ### `browser.waitForPageToLoad()`
+### `browser.waitForFrameToLoad()`
 ### `browser.getValue()`
 ### `browser.setValue()`
+### `browser.getNodeValue()`
+### `browser.setNodeValue()`
 ### `browser.fill()`
 ### `browser.clear()`
 ### `browser.querySelector()`
@@ -80,12 +85,15 @@ Once you have the browser instance, you can call the methods to interact with it
 ### `browser.keyboardEvent()`
 ### `browser.mouseEvent()`
 ### `browser.click()`
+### `browser.clickOnSelector()` 
+### `browser.getNodeCentroid()`
 ### `browser.getCookies()`
 ### `browser.exist()`
 ### `browser.visible()`
 ### `browser.printToPDF()`
 ### `browser.getScreenshot()`
 ### `browser.saveScreenshot()`
+### `browser.getFrames()`
 
 # Example
 
