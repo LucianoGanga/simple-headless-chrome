@@ -35,7 +35,8 @@
     "bluebird": "^3.5.0",
     "chrome-remote-interface": "^0.22.0",
     "lighthouse": "^2.0.0",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "mz": "^2.6.0"
   },
   "devDependencies": {
     "standard": "^10.0.2"
