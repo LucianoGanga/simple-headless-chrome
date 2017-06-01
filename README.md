@@ -7,6 +7,7 @@ I was inspired by the next projects:
 * Doffy (https://github.com/qieguo2016/doffy)
 * Horseman (https://github.com/johntitus/node-horseman)
 * chrome-remote-interface (https://github.com/cyrus-and/chrome-remote-interface)
+* lighthouse (https://github.com/googlechrome/lighthouse)
 
 And I had to read a lot here too:
 *  https://developers.google.com/web/updates/2017/04/headless-chrome
