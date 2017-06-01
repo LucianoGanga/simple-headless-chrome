@@ -66,8 +66,9 @@ Once you have the browser instance, you can call the methods to interact with it
 
 # Methods (see /lib/actions.js for method parameters and description)
 
-### `browser.inject()`
+### `browser.inject()` // Needs review!
 ### `browser.evaluate()`
+### `browser.evaluateAsync()`
 ### `browser.evaluateOnNode()`
 ### `browser.goTo()`
 ### `browser.wait()`
@@ -95,6 +96,7 @@ Once you have the browser instance, you can call the methods to interact with it
 ### `browser.getScreenshot()`
 ### `browser.saveScreenshot()`
 ### `browser.getFrames()`
+### `browser.handleDialog()`
 ### `browser.post()`
 
 # Example
