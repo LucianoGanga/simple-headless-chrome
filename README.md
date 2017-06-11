@@ -51,7 +51,8 @@ You can check the buildpack repository here: https://github.com/heroku/heroku-bu
 With the addition of Chrome Remote Interface into Chrome 59, a simple way to install is using the Docker image for Chrome Headless, such as https://hub.docker.com/r/justinribeiro/chrome-headless/ or https://hub.docker.com/r/yukinying/chrome-headless/
 
 If using Docker, in your app, configure for headless as follows:
-```const browser = new HeadlessChrome({
+```js
+const browser = new HeadlessChrome({
   headless: true,
   launchChrome: false,
   chrome: {
