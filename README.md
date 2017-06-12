@@ -47,6 +47,24 @@ sudo apt-get install -f
 Just add the buildpack for Heroku and vualá! Everything is ready
 You can check the buildpack repository here: https://github.com/heroku/heroku-buildpack-google-chrome
 
+### Using a Docker image
+With the addition of Chrome Remote Interface into Chrome 59, a simple way to install is using the Docker image for Chrome Headless, such as https://hub.docker.com/r/justinribeiro/chrome-headless/ or https://hub.docker.com/r/yukinying/chrome-headless/
+
+If using Docker, in your app, configure for headless as follows:
+```js
+const browser = new HeadlessChrome({
+  headless: true,
+  launchChrome: false,
+  chrome: {
+    host: 'localhost',
+    port: 9222, // Chrome Docker default port
+    remote: true
+  },
+  browserlog: true
+})
+```
+
+
 ## 2) Install the NPM Module
 
 ```
@@ -106,42 +124,49 @@ const HeadlessChrome = require('simple-headless-chrome')
 
 const browser = new HeadlessChrome({
   headless: true // If you turn this off, you can actually see the browser navigate with your instructions
+  // see above if using remote interface
 })
-await browser.init()
-// Navigate to a URL
-await browser.goTo('http://www.mywebsite.com/login')
+async function navigateWebsite() {
+  await browser.init()
+  // Navigate to a URL
+  await browser.goTo('http://www.mywebsite.com/login')
 
-// Fill an element
-await browser.fill('#username', 'myUser')
+  // Fill an element
+  await browser.fill('#username', 'myUser')
 
-// Type in an element
-await browser.type('#password', 'Yey!ImAPassword!')
+  // Type in an element
+  await browser.type('#password', 'Yey!ImAPassword!')
 
-// Click on a button
-await browser.click('#Login')
+  // Click on a button
+  await browser.click('#Login')
 
-// Log some info in your console
-await browser.log('Click login')
+  // Log some info in your console
+  await browser.log('Click login')
 
-// Wait some time! (2s)
-await browser.wait(2000)
+  // Wait some time! (2s)
+  await browser.wait(2000)
+  
+  // Log some info in your console, ONLY if you started the app in DEBUG mode (DEBUG='HeadlessChrome*' npm start)
+  await browser.debugLog('Waiting 5 seconds to give some time to all the redirects')
 
-// Log some info in your console, ONLY if you started the app in DEBUG mode (DEBUG='HeadlessChrome*' npm start)
-await browser.debugLog('Waiting 5 seconds to give some time to all the redirects')
+  // Navigate a little...
+  await browser.goTo('http://www.mywebsite.com/myProfile')
 
-// Navigate a little...
-await browser.goTo('http://www.mywebsite.com/myProfile')
+  // Check the select current value
+  const myCurrentSubscriptionPlan = await browser.getValue('#subscriptionSelect')
+  console.log(myCurrentSubscriptionPlan) // {type: 'string', value: '1 month' }
 
-// Check the select current value
-const myCurrentSubscriptionPlan = await browser.getValue('#subscriptionSelect')
-console.log(myCurrentSubscriptionPlan) // {type: 'string', value: '1 month' }
+  // Edit the subscription
+  await browser.select('#subscriptionSelect', '3 months')
+  await browser.click('#Save')
+  
+  // Take a screenshot
+  await browser.saveScreenshot('./shc.png')
 
-// Edit the subscription
-await browser.select('#subscriptionSelect', '3 months')
-await browser.click('#Save')
-
-// Close the browser
-await browser.close()
+  // Close the browser
+  await browser.close()
+ }
+ navigateWebsite()
 ```
 
 # TODO: 
