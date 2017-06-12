@@ -121,7 +121,6 @@ Once you have the browser instance, you can call the methods to interact with it
 
 ```js
 const HeadlessChrome = require('simple-headless-chrome')
-const fs = require('fs'); // required only if saving screenshot/PDF to filesystem
 
 const browser = new HeadlessChrome({
   headless: true // If you turn this off, you can actually see the browser navigate with your instructions
@@ -162,8 +161,7 @@ async function navigateWebsite() {
   await browser.click('#Save')
   
   // Take a screenshot
-  const rdata = await browser.getScreenshot()
-  fs.writeFileSync('shc.png', Buffer.from(rdata, 'base64'));
+  await browser.saveScreenshot('./shc.png')
 
   // Close the browser
   await browser.close()
