@@ -162,6 +162,12 @@ async function navigateWebsite() {
   
   // Take a screenshot
   await browser.saveScreenshot('./shc.png')
+  
+  // Get a HTML tag value based on class id
+  const htmlTag = await browser.evaluate(function(selector) {
+    const selectorHtml = document.querySelector(selector)
+    return selectorHtml.innerHTML
+  }, '.main'); // returns innerHTML of first matching selector for class "main"
 
   // Close the browser
   await browser.close()
