@@ -108,6 +108,7 @@ Once you have the browser instance, you can call the methods to interact with it
 ### `browser.clickOnSelector()` 
 ### `browser.getNodeCentroid()`
 ### `browser.getCookies()`
+### `browser.setCookie()`
 ### `browser.exist()`
 ### `browser.visible()`
 ### `browser.printToPDF()`
