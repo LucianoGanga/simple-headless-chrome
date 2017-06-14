@@ -176,21 +176,27 @@ async function navigateWebsite() {
 ```
 
 # TODO: 
-* Better docs
-* Separate the methods in the actions file in actions per Domain (see left menu here: https://chromedevtools.github.io/devtools-protocol/tot/)
+### Better docs
 
-* Add more methods:
-  .waitForSelector
-  .setCookie (set individual cookie)
-  .setCookies (set all the cookies)
+### Add more methods
+- [ ] .waitForSelector
+- [x] .setCookie (set individual cookie) Thanks @saidganim !
+- [ ] .setCookies (set a full object of cookies, like the one from .getCookies())
 
-* Allow adding new targets/tabs and controlling them at the same time (https://github.com/cyrus-and/chrome-remote-interface#cdpnewoptions-callback and https://github.com/cyrus-and/chrome-remote-interface/wiki/Inspect-a-new-tab)
+### And more...
+- [ ] Separate the methods in the actions file in actions per Domain (see left menu here: https://chromedevtools.github.io/devtools-protocol/tot/)
 
-* Improve existing methods:
+- [ ] Allow adding new targets/tabs and controlling them at the same time (https://github.com/cyrus-and/chrome-remote-interface#cdpnewoptions-callback and https://github.com/cyrus-and/chrome-remote-interface/wiki/Inspect-a-new-tab)
+
+- [ ] Improve existing methods:
   .getCookies - Should receive a cookie name and return only that one, or all the cookies if no key is specified
 
-* Bypass Certificate Errors (https://github.com/cyrus-and/chrome-remote-interface/wiki/Bypass-certificate-errors-(%22Your-connection-is-not-private%22)
+- [ ] Bypass Certificate Errors (https://github.com/cyrus-and/chrome-remote-interface/wiki/Bypass-certificate-errors-(%22Your-connection-is-not-private%22)
 
-* Add Target domain API 
+- [ ] Add Target domain API 
   So we can create tabs: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-createTarget
-* Tests
+
+
+### Tests
+I was thinking on using this HTML page to make all the tests: https://github.com/cbracco/html5-test-page
+It'd be great to have some unit tests for each HTML element; besides, those test may be useful examples for everyone. 
