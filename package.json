@@ -1,6 +1,6 @@
 {
   "name": "simple-headless-chrome",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Headless Chrome abstraction to simplify the interaction with the browser. It may be used for crawling sites, test automation, etc",
   "main": "index.js",
   "scripts": {
