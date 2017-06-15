@@ -184,6 +184,12 @@ async function navigateWebsite() {
 - [x] .setCookie (set individual cookie) Thanks @saidganim !
 - [ ] .setCookies (set a full object of cookies, like the one from .getCookies())
 
+### Support more Chrome flags
+- [ ] --disable-translate
+- [ ] --disable-extensions
+- [ ] --no-first-run
+- [ ] And many more! Only those useful...
+
 ### And more...
 - [ ] Separate the methods in the actions file in actions per Domain (see left menu here: https://chromedevtools.github.io/devtools-protocol/tot/)
 
