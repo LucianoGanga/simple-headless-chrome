@@ -208,3 +208,7 @@ async function navigateWebsite() {
 ### Tests
 I was thinking on using this HTML page to make all the tests: https://github.com/cbracco/html5-test-page
 It'd be great to have some unit tests for each HTML element; besides, those test may be useful examples for everyone. 
+
+### More examples!!!
+
+
