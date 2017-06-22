@@ -115,6 +115,7 @@ Once you have the browser instance, you can call the methods to interact with it
 ### `browser.getScreenshot()`
 ### `browser.saveScreenshot()`
 ### `browser.getFrames()`
+### `browser.resizeFullScreen()`
 ### `browser.handleDialog()`
 ### `browser.post()`
 
