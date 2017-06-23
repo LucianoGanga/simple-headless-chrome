@@ -161,7 +161,10 @@ async function navigateWebsite() {
   // Edit the subscription
   await browser.select('#subscriptionSelect', '3 months')
   await browser.click('#Save')
-  
+
+  // Resize the viewport to full screen size (One use is to take full size screen shots)
+  await browser.resizeFullScreen()
+
   // Take a screenshot
   await browser.saveScreenshot('./shc.png')
   
