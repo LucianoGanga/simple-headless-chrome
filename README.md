@@ -118,6 +118,7 @@ Once you have the browser instance, you can call the methods to interact with it
 ### `browser.resizeFullScreen()`
 ### `browser.handleDialog()`
 ### `browser.post()`
+### `browser.onConsole()`
 
 # Example
 
