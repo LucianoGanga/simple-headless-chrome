@@ -34,7 +34,7 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "chrome-launcher": "^0.2.1",
-    "chrome-remote-interface": "^0.23.2",
+    "chrome-remote-interface": "^0.23.3",
     "lodash": "^4.17.4",
     "mz": "^2.6.0"
   },
