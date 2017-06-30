@@ -24,6 +24,11 @@ It's really simple to use. I hope I can get some time to make a QuickStart guide
 # Collaboration
 If you want to collaborate with the project, in any way (documentation, examples, fixes, etc), just send a PR :) 
 
+If you rock at making tests, it would be very useful if you can help us making this module better. 
+It's not necesary to build all the tests, but if someone knows how to code the base to add tests to this module, it would really help for someone else to start with this part. 
+
+Thank you to all those who already help with PR! :D 
+
 # Installation
 
 ## 1) Install Google Chrome Headless
