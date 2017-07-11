@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/LucianoGanga/simple-headless-chrome.svg?branch=master)](https://travis-ci.org/LucianoGanga/simple-headless-chrome)
+
 # simple-headless-chrome
 
 # Introduction
@@ -11,23 +13,23 @@ I was inspired by the next projects:
 
 And I had to read a lot here too:
 *  https://developers.google.com/web/updates/2017/04/headless-chrome
-*  https://chromedevtools.github.io/devtools-protocol 
+*  https://chromedevtools.github.io/devtools-protocol
 
 And you can also use this in heroku thanks to https://github.com/heroku/heroku-buildpack-google-chrome
 
 I built this basically because I got tired of an error I received in an edge case when using PhantomJS (Unhandled reject Error: Failed to load url). So I decided to make my own abstraction, to be used in a heroku app, and simple to use as Horseman.
 
-I didn't have time to document here in the readme, but every method in the source code is documented. 
+I didn't have time to document here in the readme, but every method in the source code is documented.
 
-It's really simple to use. I hope I can get some time to make a QuickStart guide + document the API methods here. 
+It's really simple to use. I hope I can get some time to make a QuickStart guide + document the API methods here.
 
 # Collaboration
-If you want to collaborate with the project, in any way (documentation, examples, fixes, etc), just send a PR :) 
+If you want to collaborate with the project, in any way (documentation, examples, fixes, etc), just send a PR :)
 
-If you rock at making tests, it would be very useful if you can help us making this module better. 
-It's not necesary to build all the tests, but if someone knows how to code the base to add tests to this module, it would really help for someone else to start with this part. 
+If you rock at making tests, it would be very useful if you can help us making this module better.
+It's not necesary to build all the tests, but if someone knows how to code the base to add tests to this module, it would really help for someone else to start with this part.
 
-Thank you to everyone who already help submitting a PR! :D 
+Thank you to everyone who already help submitting a PR! :D
 
 # Installation
 
@@ -85,7 +87,7 @@ const browser = new HeadlessChrome({
 })
 ```
 
-Once you have the browser instance, you can call the methods to interact with it. 
+Once you have the browser instance, you can call the methods to interact with it.
 
 # Methods (see /lib/actions.js for method parameters and description)
 
@@ -110,7 +112,7 @@ Once you have the browser instance, you can call the methods to interact with it
 ### `browser.keyboardEvent()`
 ### `browser.mouseEvent()`
 ### `browser.click()`
-### `browser.clickOnSelector()` 
+### `browser.clickOnSelector()`
 ### `browser.getNodeCentroid()`
 ### `browser.getCookies()`
 ### `browser.setCookie()`
@@ -153,7 +155,7 @@ async function navigateWebsite() {
 
   // Wait some time! (2s)
   await browser.wait(2000)
-  
+
   // Log some info in your console, ONLY if you started the app in DEBUG mode (DEBUG='HeadlessChrome*' npm start)
   await browser.debugLog('Waiting 5 seconds to give some time to all the redirects')
 
@@ -173,7 +175,7 @@ async function navigateWebsite() {
 
   // Take a screenshot
   await browser.saveScreenshot('./shc.png')
-  
+
   // Get a HTML tag value based on class id
   const htmlTag = await browser.evaluate(function(selector) {
     const selectorHtml = document.querySelector(selector)
@@ -186,7 +188,7 @@ async function navigateWebsite() {
  navigateWebsite()
 ```
 
-# TODO: 
+# TODO:
 ### Better docs
 
 ### Add more methods
@@ -210,14 +212,12 @@ async function navigateWebsite() {
 
 - [ ] Bypass Certificate Errors (https://github.com/cyrus-and/chrome-remote-interface/wiki/Bypass-certificate-errors-(%22Your-connection-is-not-private%22)
 
-- [ ] Add Target domain API 
+- [ ] Add Target domain API
   So we can create tabs: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-createTarget
 
 
 ### Tests
 I was thinking on using this HTML page to make all the tests: https://github.com/cbracco/html5-test-page
-It'd be great to have some unit tests for each HTML element; besides, those test may be useful examples for everyone. 
+It'd be great to have some unit tests for each HTML element; besides, those test may be useful examples for everyone.
 
 ### More examples!!!
-
-
