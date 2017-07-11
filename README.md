@@ -6,16 +6,18 @@
 
 This is an abstraction to use a Headless version of Google Chrome in a very simple way.
 I was inspired by the next projects:
-* Doffy (https://github.com/qieguo2016/doffy)
-* Horseman (https://github.com/johntitus/node-horseman)
-* chrome-remote-interface (https://github.com/cyrus-and/chrome-remote-interface)
-* lighthouse (https://github.com/googlechrome/lighthouse)
+
+-   Doffy (<https://github.com/qieguo2016/doffy>)
+-   Horseman (<https://github.com/johntitus/node-horseman>)
+-   chrome-remote-interface (<https://github.com/cyrus-and/chrome-remote-interface>)
+-   lighthouse (<https://github.com/googlechrome/lighthouse>)
 
 And I had to read a lot here too:
-*  https://developers.google.com/web/updates/2017/04/headless-chrome
-*  https://chromedevtools.github.io/devtools-protocol
 
-And you can also use this in heroku thanks to https://github.com/heroku/heroku-buildpack-google-chrome
+-   <https://developers.google.com/web/updates/2017/04/headless-chrome>
+-   <https://chromedevtools.github.io/devtools-protocol>
+
+And you can also use this in heroku thanks to <https://github.com/heroku/heroku-buildpack-google-chrome>
 
 I built this basically because I got tired of an error I received in an edge case when using PhantomJS (Unhandled reject Error: Failed to load url). So I decided to make my own abstraction, to be used in a heroku app, and simple to use as Horseman.
 
@@ -24,6 +26,7 @@ I didn't have time to document here in the readme, but every method in the sourc
 It's really simple to use. I hope I can get some time to make a QuickStart guide + document the API methods here.
 
 # Collaboration
+
 If you want to collaborate with the project, in any way (documentation, examples, fixes, etc), just send a PR :)
 
 If you rock at making tests, it would be very useful if you can help us making this module better.
@@ -37,27 +40,28 @@ Thank you to everyone who already help submitting a PR! :D
 
 ### In your PC
 
-Mac: Chrome Headless is shipped in Chrome Canary. You can install it here: https://www.google.com/chrome/browser/canary.html
+Mac: Chrome Headless is shipped in Chrome Canary. You can install it here: <https://www.google.com/chrome/browser/canary.html>
 
 Linux: Chrome headless is shipped on chrome 59. so you can install Chrome 59 to use the headless mode:
 
-https://askubuntu.com/questions/79280/how-to-install-chrome-browser-properly-via-command-line
+<https://askubuntu.com/questions/79280/how-to-install-chrome-browser-properly-via-command-line>
 
-```
-sudo apt-get install libxss1 libappindicator1 libindicator7
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome*.deb  # Might show "errors", fixed by next line
-sudo apt-get install -f
-```
+    sudo apt-get install libxss1 libappindicator1 libindicator7
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome*.deb  # Might show "errors", fixed by next line
+    sudo apt-get install -f
 
 ### In a NodeJS Heroku App
+
 Just add the buildpack for Heroku and vualá! Everything is ready
-You can check the buildpack repository here: https://github.com/heroku/heroku-buildpack-google-chrome
+You can check the buildpack repository here: <https://github.com/heroku/heroku-buildpack-google-chrome>
 
 ### Using a Docker image
-With the addition of Chrome Remote Interface into Chrome 59, a simple way to install is using the Docker image for Chrome Headless, such as https://hub.docker.com/r/justinribeiro/chrome-headless/ or https://hub.docker.com/r/yukinying/chrome-headless/
+
+With the addition of Chrome Remote Interface into Chrome 59, a simple way to install is using the Docker image for Chrome Headless, such as <https://hub.docker.com/r/justinribeiro/chrome-headless/> or <https://hub.docker.com/r/yukinying/chrome-headless/>
 
 If using Docker, in your app, configure for headless as follows:
+
 ```js
 const browser = new HeadlessChrome({
   headless: true,
@@ -71,14 +75,12 @@ const browser = new HeadlessChrome({
 })
 ```
 
-
 ## 2) Install the NPM Module
 
-```
-npm install --save --simple-headless-chrome
-```
+    npm install --save --simple-headless-chrome
 
 # Usage
+
 ```js
 const HeadlessChrome = require('simple-headless-chrome')
 
@@ -89,43 +91,463 @@ const browser = new HeadlessChrome({
 
 Once you have the browser instance, you can call the methods to interact with it.
 
-# Methods (see /lib/actions.js for method parameters and description)
+# Methods
 
-### `browser.inject()` // Needs review!
-### `browser.evaluate()`
-### `browser.evaluateAsync()`
-### `browser.evaluateOnNode()`
-### `browser.goTo()`
-### `browser.wait()`
-### `browser.waitForPageToLoad()`
-### `browser.waitForFrameToLoad()`
-### `browser.getValue()`
-### `browser.setValue()`
-### `browser.getNodeValue()`
-### `browser.setNodeValue()`
-### `browser.fill()`
-### `browser.clear()`
-### `browser.querySelector()`
-### `browser.focus()`
-### `browser.type()`
-### `browser.select()`
-### `browser.keyboardEvent()`
-### `browser.mouseEvent()`
-### `browser.click()`
-### `browser.clickOnSelector()`
-### `browser.getNodeCentroid()`
-### `browser.getCookies()`
-### `browser.setCookie()`
-### `browser.exist()`
-### `browser.visible()`
-### `browser.printToPDF()`
-### `browser.getScreenshot()`
-### `browser.saveScreenshot()`
-### `browser.getFrames()`
-### `browser.resizeFullScreen()`
-### `browser.handleDialog()`
-### `browser.post()`
-### `browser.onConsole()`
+<!-- Generated by documentation.js. Update this documentation by updating the source code. -->
+
+## inject
+
+Injects a module in the page
+
+**Parameters**
+
+-   `name` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Name of the module to inject
+
+## evaluate
+
+Evaluates a fn in the context of the browser
+
+**Parameters**
+
+-   `fn`  {function} - The function to evaluate in the browser
+-   `args` **...any** {\*} - The arguments to pass to the function
+
+## evaluateAsync
+
+Evaluates an async fn in the context of the browser
+
+**Parameters**
+
+-   `fn`  {function} - The function to evaluate in the browser
+-   `args` **...any** {\*} - The arguments to pass to the function
+
+## evaluateOnNode
+
+Evaluates a fn in the context of a passed node
+
+**Parameters**
+
+-   `node` **NodeObject** The Node Object used to get the context
+-   `fn`  {function} - The function to evaluate in the browser
+-   `args` **...any** {\*} - The arguments to pass to the function
+
+## goTo
+
+Navigates to a URL
+
+**Parameters**
+
+-   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The URL to navigate to
+-   `opt`   (optional, default `{}`)
+-   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** The options object.
+    options:
+
+**Properties**
+
+-   `timeout` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Time in ms that this method has to wait until the
+    "pageLoaded" event is triggered. If the value is 0 or false, it means that it doesn't
+    have to wait after calling the "Page.navigate" method
+
+## getNodeValue
+
+Get the value of an Node.
+
+**Parameters**
+
+-   `node` **NodeObject** The Node Object
+
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Object containing type and value of the element
+
+## getValue
+
+Get the value of an element.
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The target selector
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Object containing type and value of the element
+
+## setNodeValue
+
+Set the value of an element.
+
+**Parameters**
+
+-   `node` **NodeObject** The Node Object
+-   `value` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The value to set the node to (it may be an array of values when the node is a multiple "HTMLSelectElement")
+
+## setValue
+
+Set the value of an element.
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector to set the value of.
+-   `value` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** The value to set the selector to
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+## fill
+
+Fills a selector of an input or textarea element with the passed value
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector
+-   `value` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The value to fill the element matched in the selector
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+## clear
+
+Clear an input field.
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector to clear.
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+## querySelector
+
+Returns the node associated to the passed selector
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector to find
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+## focus
+
+Focus on an element matching the selector
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector to find the element
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+## type
+
+Simulate a keypress on a selector
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selctor to type into.
+-   `text` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The text to type.
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+-   `opts`  
+-   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Lets you send keys like control & shift
+
+## select
+
+Select a value in an html select element.
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The identifier for the select element.
+-   `value` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The value to select.
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+## keyboardEvent
+
+-   **See: <https://chromedevtools.github.io/devtools-protocol/tot/Input/#method-dispatchKeyEvent>**
+
+Fire a key event.
+
+**Parameters**
+
+-   `type` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The type of key event. (optional, default `keypress`)
+-   `key` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The key to use for the event. (optional, default `null`)
+-   `modifier` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The keyboard modifier to use. (optional, default `0`)
+
+## wait
+
+Waits certain amount of ms
+
+**Parameters**
+
+-   `time` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Ammount of ms to wait
+
+## onConsole
+
+Binding callback to handle console messages
+
+**Parameters**
+
+-   `listener`  is a callback for handling console message
+
+## waitForPageToLoad
+
+Waits for a page to finish loading. Throws error after timeout
+
+**Parameters**
+
+-   `timeout` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The timeout in ms. (Default: "loadPageTimeout" property in the browser instance options)
+
+## waitForFrameToLoad
+
+Waits for all the frames in the page to finish loading. Returns the list of frames after that
+
+**Parameters**
+
+-   `url` **([regexp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) \| [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))** The URL that must be waited for load
+-   `timeout`  
+
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** List of frames, with childFrames
+
+## waitForSelectorToLoad
+
+Waits for a selector to finish loading. Throws error after timeout
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The identifier for the select element.
+-   `interval` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The interval in ms. (Default: "loadPageTimeout" property in the browser instance options)
+-   `timeout` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The timeout in ms. (Default: "loadPageTimeout" property in the browser instance options)
+
+## mouseEvent
+
+-   **See: <https://chromedevtools.github.io/devtools-protocol/tot/Input/#method-dispatchMouseEvent>**
+
+Fire a mouse event.
+
+**Parameters**
+
+-   `$0` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+    -   `$0.type`   (optional, default `'mousePressed'`)
+    -   `$0.x`   (optional, default `0`)
+    -   `$0.y`   (optional, default `0`)
+    -   `$0.modifiers`   (optional, default `0`)
+    -   `$0.button`   (optional, default `'left'`)
+    -   `$0.clickCount`   (optional, default `1`)
+-   `type` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Type of the mouse event. Allowed values: mousePressed, mouseReleased, mouseMoved. (optional, default `mousePressed`)
+-   `x` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** X coordinate of the event relative to the main frame's viewport. (optional, default `0`)
+-   `y` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Y coordinate of the event relative to the main frame's viewport. 0 refers to the top of the viewport and Y increases as it proceeds towards the bottom of the viewport. (optional, default `0`)
+-   `modifier` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Bit field representing pressed modifier keys. Alt=1, Ctrl=2, Meta/Command=4, Shift=8 (default: 0). (optional, default `0`)
+-   `button` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Mouse button (default: "none"). Allowed values: none, left, middle, right. (optional, default `left`)
+
+## click
+
+Click on a selector by firing a 'click event' directly in the element of the selector
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Selector of the element to click
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+## clickOnSelector
+
+Clicks left button hover the centroid of the element matching the passed selector
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+## getNodeCentroid
+
+Calculates the centroid of a node by using the boxModel data of the element
+
+**Parameters**
+
+-   `nodeId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The Node Id
+
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** { x, y } object with the coordinates
+
+## getCookies
+
+Get the browser cookies
+
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Object with all the cookies
+
+## setCookie
+
+Set the browser cookies
+
+**Parameters**
+
+-   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The request-URI to associate with the setting of the cookie.
+-   `name` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The name of the cookie.
+-   `value` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The value of the cookie.
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** True if successfully set cookie
+
+## exist
+
+Checks if an element matches the selector
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector string
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Boolean indicating if element of selector exists or not
+
+## visible
+
+Checks if an element matching a selector is visible
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector string
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Boolean indicating if element of selector is visible or not
+
+## printToPDF
+
+Prints the page to PDF
+
+**Parameters**
+
+-   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options object
+    Options properties: (optional, default `{}`)
+-   `returnBinary` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If true, returns as binary. Otherwise, returns a base64 string (optional, default `false`)
+
+**Properties**
+
+-   `landscape` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Paper orientation. Defaults to false.
+-   `displayHeaderFooter` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Display header and footer. Defaults to false.
+-   `printBackground` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Print background graphics. Defaults to false.
+-   `scale` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Scale of the webpage rendering. Defaults to 1.
+-   `paperWidth` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Paper width in inches. Defaults to 8.5 inches.
+-   `paperHeight` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Paper height in inches. Defaults to 11 inches.
+-   `marginTop` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Top margin in inches. Defaults to 1cm (~0.4 inches).
+-   `marginBottom` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Bottom margin in inches. Defaults to 1cm (~0.4 inches).
+-   `marginLeft` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Left margin in inches. Defaults to 1cm (~0.4 inches).
+-   `marginRight` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Right margin in inches. Defaults to 1cm (~0.4 inches).
+-   `pageRanges` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Paper ranges to print, e.g., '1-5, 8, 11-13'. Defaults to the empty string, which means print all pages.
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Binary or Base64 string with the PDF data
+
+## getScreenshot
+
+Takes a screenshot of the page and returns it as a string
+
+**Parameters**
+
+-   `captureOptions` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options object
+    Options properties: (optional, default `{}`)
+-   `returnBinary` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If true, returns as binary. Otherwise, returns a base64 string (optional, default `false`)
+
+**Properties**
+
+-   `format` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Image compression format (defaults to png). Allowed values: jpeg, png.
+-   `quality` **integer** Compression quality from range [0..100](<jpeg only>).
+-   `fromSurface` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Capture the screenshot from the surface, rather than the view. Defaults to false. EXPERIMENTAL
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Binary or Base64 string with the image data
+
+## saveScreenshot
+
+Saves a screenshot of the page
+
+**Parameters**
+
+-   `fileName` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Path and Name of the file (without the extension) (optional, default `` `screenshot-${Date.now()}` ``)
+-   `captureOptions` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options object
+    Options properties: (optional, default `{}`)
+
+**Properties**
+
+-   `format` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Image compression format (defaults to png). Allowed values: jpeg, png.
+-   `quality` **integer** Compression quality from range [0..100](<jpeg only>).
+-   `fromSurface` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Capture the screenshot from the surface, rather than the view. Defaults to false. EXPERIMENTAL
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Binary or Base64 string with the image data
+
+## getFrames
+
+Get the list of frames in the loaded page
+
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** List of frames, with childFrames
+
+## resizeFullScreen
+
+Resize viewports of the page to full screen size
+
+## handleDialog
+
+Accepts or dismisses a JavaScript initiated dialog (alert, confirm, prompt, or onbeforeunload)
+
+**Parameters**
+
+-   `accept` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Whether to accept or dismiss the dialog (optional, default `true`)
+-   `promptText` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** The text to enter into the dialog prompt before accepting. Used only if this is a prompt dialog. (optional, default `''`)
+
+## post
+
+Post data from the browser context
+
+**Parameters**
+
+-   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The URL or path to POST to
+-   `data` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)?** The data object to be posted (optional, default `{}`)
+-   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)?** Options of the request (optional, default `{}`)
+
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Request status and data
+
+## value
+
+TODO: Take the value from the DOM Node. For some reason, there're some pages where is not possible
+to get the textarea value, as its nodeId refreshes all the time
+
+## setNodeValue
+
+TODO: Take the value from the DOM Node. For some reason, there're some pages where is not possible
+to get the textarea value, as its nodeId refreshes all the time
+
+## browserIsInitialized
+
+Checks if the browser is initialized. Exits the process if it's not
+
+## fixSelector
+
+As the selectors may contain colons, it's necessary to escape them in order to correctly match an element
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector string
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector with colons escaped (One backslash to escape the ':' for CSS, and other to escape the first one for JS)
+
+## promiseTimeout
+
+Runs a promise and throws an error if it's not resolved before the timeout
+
+**Parameters**
+
+-   `promise` **[promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** The promise to run
+-   `timeout` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The timeout time, in ms
+
+## interleaveArrayToObject
+
+Transforms an interleave array into a key - value object
+
+**Parameters**
+
+-   `interleaveArray` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** The interleave array
+
+Returns **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** The key value object
+
+## objectToEncodedUri
+
+Given an object, transforms it's properties to a URL encoded string
+
+**Parameters**
+
+-   `object` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** The object to transform
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The URL Enconded object
+
+## sleep
+
+Creates some delay
+
+**Parameters**
+
+-   `delay` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Delay in miliseconds
+
+Returns **[promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** The promise that will solve after the delay
 
 # Example
 
@@ -189,35 +611,40 @@ async function navigateWebsite() {
 ```
 
 # TODO:
+
 ### Better docs
 
 ### Add more methods
-- [ ] .waitForSelector
-- [x] .setCookie (set individual cookie) Thanks @saidganim !
-- [ ] .setCookies (set a full object of cookies, like the one from .getCookies())
+
+-   [ ] .waitForSelector
+-   [x] .setCookie (set individual cookie) Thanks @saidganim !
+-   [ ] .setCookies (set a full object of cookies, like the one from .getCookies())
 
 ### Support more Chrome flags
-- [ ] --disable-translate
-- [ ] --disable-extensions
-- [ ] --no-first-run
-- [ ] And many more! Only those useful...
+
+-   [ ] \--disable-translate
+-   [ ] \--disable-extensions
+-   [ ] \--no-first-run
+-   [ ] And many more! Only those useful...
 
 ### And more...
-- [ ] Separate the methods in the actions file in actions per Domain (see left menu here: https://chromedevtools.github.io/devtools-protocol/tot/)
 
-- [ ] Allow adding new targets/tabs and controlling them at the same time (https://github.com/cyrus-and/chrome-remote-interface#cdpnewoptions-callback and https://github.com/cyrus-and/chrome-remote-interface/wiki/Inspect-a-new-tab)
+-   [ ] Separate the methods in the actions file in actions per Domain (see left menu here: <https://chromedevtools.github.io/devtools-protocol/tot/>)
 
-- [ ] Improve existing methods:
-  .getCookies - Should receive a cookie name and return only that one, or all the cookies if no key is specified
+-   [ ] Allow adding new targets/tabs and controlling them at the same time (<https://github.com/cyrus-and/chrome-remote-interface#cdpnewoptions-callback> and <https://github.com/cyrus-and/chrome-remote-interface/wiki/Inspect-a-new-tab>)
 
-- [ ] Bypass Certificate Errors (https://github.com/cyrus-and/chrome-remote-interface/wiki/Bypass-certificate-errors-(%22Your-connection-is-not-private%22)
+-   [ ] Improve existing methods:
+    .getCookies - Should receive a cookie name and return only that one, or all the cookies if no key is specified
 
-- [ ] Add Target domain API
-  So we can create tabs: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-createTarget
+-   [ ] Bypass Certificate Errors (<https://github.com/cyrus-and/chrome-remote-interface/wiki/Bypass-certificate-errors-(%22Your-connection-is-not-private%22>)
 
+-   [ ] Add Target domain API
+    So we can create tabs: <https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-createTarget>
 
 ### Tests
-I was thinking on using this HTML page to make all the tests: https://github.com/cbracco/html5-test-page
+
+I was thinking on using this HTML page to make all the tests: <https://github.com/cbracco/html5-test-page>
+
 It'd be great to have some unit tests for each HTML element; besides, those test may be useful examples for everyone.
 
 ### More examples!!!
