@@ -1,10 +1,12 @@
 {
   "name": "simple-headless-chrome",
-  "version": "2.5.9",
+  "version": "2.5.10",
   "description": "Headless Chrome abstraction to simplify the interaction with the browser. It may be used for crawling sites, test automation, etc",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "documentation": "documentation readme lib/actions.js --section=Methods",
+    "preversion": "npm run -s documentation",
+    "test": "tap test"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,8 @@
     "mz": "^2.6.0"
   },
   "devDependencies": {
-    "standard": "^10.0.2"
+    "documentation": "^4.0.0-rc.1",
+    "standard": "^10.0.2",
+    "tap": "^10.7.0"
   }
 }
