@@ -69,7 +69,8 @@ const browser = new HeadlessChrome({
   chrome: {
     host: 'localhost',
     port: 9222, // Chrome Docker default port
-    remote: true
+    remote: true,
+    userDataDir: '/tmp/headlessDataDir' // This can be null, so a tmp folder will be created and then destroyed
   },
   browserlog: true
 })
