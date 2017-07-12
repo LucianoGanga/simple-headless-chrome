@@ -70,7 +70,6 @@ const browser = new HeadlessChrome({
     host: 'localhost',
     port: 9222, // Chrome Docker default port
     remote: true,
-    userDataDir: '/tmp/headlessDataDir' // This can be null, so a tmp folder will be created and then destroyed
   },
   browserlog: true
 })
@@ -86,7 +85,10 @@ const browser = new HeadlessChrome({
 const HeadlessChrome = require('simple-headless-chrome')
 
 const browser = new HeadlessChrome({
-  headless: true // If you turn this off, you can actually see the browser navigate with your instructions
+  headless: true // If you turn this off, you can actually see the browser navigate with your instructions,
+  chrome: {
+    userDataDir: '/tmp/headlessDataDir' // This can be null, so a tmp folder will be created and then destroyed
+  }
 })
 ```
 
@@ -313,7 +315,7 @@ Fire a mouse event.
 
 **Parameters**
 
--   `$0` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+-   `$0` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)**
     -   `$0.type`   (optional, default `'mousePressed'`)
     -   `$0.x`   (optional, default `0`)
     -   `$0.y`   (optional, default `0`)
@@ -341,7 +343,7 @@ Clicks left button hover the centroid of the element matching the passed selecto
 
 **Parameters**
 
--   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?**
 -   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
 
 ## getNodeCentroid
