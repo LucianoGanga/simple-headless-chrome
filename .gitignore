@@ -58,5 +58,5 @@ typings/
 .env
 
 # built files
-lib/
+lib
 
