@@ -32,6 +32,9 @@
     "browser"
   ],
   "author": "Luciano Andrés Ganga Carabante",
+  "engines": {
+    "node": ">=4"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/LucianoGanga/simple-headless-chrome/issues"
