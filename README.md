@@ -79,6 +79,11 @@ const browser = new HeadlessChrome({
 
     npm install --save --simple-headless-chrome
 
+# Compatibility
+
+Thanks to @lewisf, simple-headless-chrome is compatible on NodeJS >= 4! 
+I hope more persons can benefit of this now :) 
+
 # Usage
 
 ```js
