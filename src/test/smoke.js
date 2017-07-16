@@ -1,4 +1,4 @@
-const HeadlessChrome = require('../')
+const HeadlessChrome = require('../../')
 const test = require('tap').test
 
 test('Headless Chrome', async function (group) {
