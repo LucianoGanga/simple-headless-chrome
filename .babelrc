@@ -3,9 +3,9 @@
     [
       "env", {
         "targets": {
-          node: 4,
+          "node": 4
         },
-        useBuiltins: true
+        "useBuiltins": true
       }
     ]
   ]
