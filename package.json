@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "documentation": "documentation readme lib/actions.js --section=Methods",
+    "build": "babel src -d lib",
+    "watch": "babel --watch src -d lib",
+    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "preversion": "npm run -s documentation",
-    "test": "tap test"
+    "test": "npm run build; tap test 'lib/test/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -28,6 +32,9 @@
     "browser"
   ],
   "author": "Luciano Andrés Ganga Carabante",
+  "engines": {
+    "node": ">=4"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/LucianoGanga/simple-headless-chrome/issues"
@@ -41,6 +48,9 @@
     "mz": "^2.6.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
     "documentation": "^4.0.0-rc.1",
     "standard": "^10.0.2",
     "tap": "^10.7.0"
