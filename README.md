@@ -90,7 +90,7 @@ I hope more persons can benefit of this now :)
 const HeadlessChrome = require('simple-headless-chrome')
 
 const browser = new HeadlessChrome({
-  headless: true // If you turn this off, you can actually see the browser navigate with your instructions,
+  headless: true, // If you turn this off, you can actually see the browser navigate with your instructions,
   chrome: {
     userDataDir: '/tmp/headlessDataDir' // This can be null, so a tmp folder will be created and then destroyed
   }
