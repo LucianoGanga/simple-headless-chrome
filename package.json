@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/LucianoGanga/simple-headless-chrome#readme",
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "bluebird": "^3.5.0",
     "chrome-launcher": "^0.2.1",
     "chrome-remote-interface": "^0.23.3",
@@ -50,7 +51,6 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "documentation": "^4.0.0-rc.1",
     "standard": "^10.0.2",
