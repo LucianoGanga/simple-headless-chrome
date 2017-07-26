@@ -77,7 +77,7 @@ const browser = new HeadlessChrome({
 
 ## 2) Install the NPM Module
 
-    npm install --save --simple-headless-chrome
+    npm install --save simple-headless-chrome
 
 # Compatibility
 
