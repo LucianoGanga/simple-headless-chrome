@@ -4,7 +4,7 @@ const browser = new HeadlessChrome({
   headless: false // If you turn this off, you can actually see the browser navigate with your instructions
   // see above if using remote interface
 })
-async function navigateWebsite() {
+async function navigateWebsite () {
   await browser.init()
   // Navigate to a URL
   await browser.goTo('http://www.google.com')
@@ -16,6 +16,6 @@ async function navigateWebsite() {
   await browser.saveScreenshot('./google')
 
   // Close the browser
-  // await browser.close()
- }
- navigateWebsite()
+  await browser.close()
+}
+navigateWebsite()
