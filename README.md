@@ -630,10 +630,23 @@ async function navigateWebsite() {
 
 ### Support more Chrome flags
 
--   [ ] \--disable-translate
--   [ ] \--disable-extensions
--   [ ] \--no-first-run
--   [ ] And many more! Only those useful...
+-   [x] \--disable-translate
+-   [x] \--disable-extensions
+-   [x] \--no-first-run
+-   [x] And many more! Only those useful...
+All supported thanks to @hugorodrigues. Now just pass an array in the init settings, like this: 
+
+```js
+const browser = new HeadlessChrome({
+    headless: false, // If you turn this off, you can actually see the browser navigate with your instructions
+    chrome: {
+      flags: [
+        '--use-fake-device-for-media-stream',
+        '--use-fake-ui-for-media-stream'
+      ]
+    }
+  })
+```
 
 ### And more...
 
