@@ -10,7 +10,7 @@
     "prepublish": "npm run build",
     "prepare": "npm run build",
     "preversion": "npm run -s documentation",
-    "test": "npm run build; tap test 'build/test/**/*.js'"
+    "test": "npm run build; DEBUG='HeadlessChrome' tap test 'build/test/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -43,8 +43,8 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "bluebird": "^3.5.0",
-    "chrome-launcher": "^0.2.1",
-    "chrome-remote-interface": "^0.23.3",
+    "chrome-launcher": "^0.3.2",
+    "chrome-remote-interface": "^0.24.2",
     "deepmerge": "^1.5.0",
     "lodash": "^4.17.4",
     "mz": "^2.6.0"

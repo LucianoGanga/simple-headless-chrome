@@ -1,8 +1,7 @@
 const HeadlessChrome = require('../index')
 
 const browser = new HeadlessChrome({
-  headless: false // If you turn this off, you can actually see the browser navigate with your instructions
-  // see above if using remote interface
+  headless: true
 })
 async function navigateWebsite () {
   await browser.init()

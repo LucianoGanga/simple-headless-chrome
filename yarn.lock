@@ -1141,20 +1141,20 @@ chokidar@^1.2.0, chokidar@^1.6.1:
   optionalDependencies:
     fsevents "^1.0.0"
 
-chrome-launcher@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/chrome-launcher/-/chrome-launcher-0.2.1.tgz#6ce9f54d146d6b8071e9ab7020ee5b11b61cc46f"
+chrome-launcher@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/chrome-launcher/-/chrome-launcher-0.3.2.tgz#c3a89e40ed2462899bac809417c4d7c451d5de05"
   dependencies:
     "@types/core-js" "^0.9.41"
     "@types/mkdirp" "^0.3.29"
     "@types/node" "6.0.66"
     lighthouse-logger "^1.0.0"
     mkdirp "0.5.1"
-    rimraf "2.2.8"
+    rimraf "^2.6.1"
 
-chrome-remote-interface@^0.23.3:
-  version "0.23.3"
-  resolved "https://registry.yarnpkg.com/chrome-remote-interface/-/chrome-remote-interface-0.23.3.tgz#686fcb3f9c1e1abd88ce69b6bb7bc9f6afd85562"
+chrome-remote-interface@^0.24.2:
+  version "0.24.2"
+  resolved "https://registry.yarnpkg.com/chrome-remote-interface/-/chrome-remote-interface-0.24.2.tgz#43a05440a1fa60b73769e72f3e7892ac11d66eba"
   dependencies:
     commander "2.1.x"
     ws "2.0.x"
@@ -3808,10 +3808,6 @@ rimraf@2, rimraf@^2.2.8, rimraf@^2.3.3, rimraf@^2.5.1, rimraf@^2.5.4, rimraf@^2.
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.1.tgz#c2338ec643df7a1b7fe5c54fa86f57428a55f33d"
   dependencies:
     glob "^7.0.5"
-
-rimraf@2.2.8:
-  version "2.2.8"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
 
 run-async@^0.1.0:
   version "0.1.0"
