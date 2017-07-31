@@ -10,7 +10,8 @@
     "prepublish": "npm run build",
     "prepare": "npm run build",
     "preversion": "npm run -s documentation",
-    "test": "npm run build; DEBUG='HeadlessChrome' tap test 'build/test/**/*.js'"
+    "test": "DEBUG=\"HeadlessChrome:browser,HeadlessChrome:tab,HeadlessChrome:actions\" tap test 'lib/test/**/*.js' -T"
+    
   },
   "repository": {
     "type": "git",

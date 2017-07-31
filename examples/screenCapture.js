@@ -1,12 +1,12 @@
 const HeadlessChrome = require('../index')
 
 const browser = new HeadlessChrome({
-  headless: true
+  headless: false
 })
 async function navigateWebsite () {
   await browser.init()
   // Navigate to a URL
-  await browser.goTo('http://www.google.com')
+  await browser.goTo('https://github.com/LucianoGanga/simple-headless-chrome')
 
   // Resize the viewport to full screen size (One use is to take full size screen shots)
   // await browser.resizeFullScreen()

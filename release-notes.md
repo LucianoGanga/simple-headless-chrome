@@ -31,13 +31,16 @@ New syntax:
 ```js
 const HeadlessChrome = require('simple-headless-chrome')
 
-const chrome = new HeadlessChrome({
+const browser = new HeadlessChrome({
   headless: true 
 })
 async function navigateWebsite() {
-  const browser = await chrome.init()
+  await browser.init()
 
-  const mainTab = await browser.newTab({ privateTab: false })
+  const mainTab = await browser.newTab({  
+    privateTab: false 
+  })
+
   // Navigate to a URL
   await mainTab.goTo('http://www.mywebsite.com/login')
 
@@ -52,4 +55,4 @@ navigateWebsite()
 
 - Property "disableGPU" was moved inside the "chrome" object. So you need to change this to support the new version
 
-- New method to close the browser instance
+- Properties "loadPageTimeout", "loadSelectorInterval", "loadSelectorTimeout" and "browserLog" were moved inside the "browser" object in the options. 
