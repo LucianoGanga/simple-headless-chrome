@@ -6,7 +6,7 @@
 
 Version 3.3.0 includes a new feature that allows managing browser tabs. 
 
-Anyway, this new feature comes with some breaking changes for full support and future scalability. 
+This new feature comes with some breaking changes that will allow us future scalability. 
 
 To avoid problems for people that uses version >= 3.3.0 of this module, we supported those breaking changes with methods that will be deprecated in version 4.0.0. 
 
