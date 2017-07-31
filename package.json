@@ -11,7 +11,7 @@
     "prepare": "npm run build",
     "prepare-patch": "npm version patch; git push; git push --tags; npm publish",
     "preversion": "npm run -s documentation",
-    "test": "npm run build; DEBUG='HeadlessChrome' tap test 'build/test/**/*.js' -T"
+    "test": "npm run build; DEBUG='HeadlessChrome' tap test 'build/test/**/*.js'"
   },
   "repository": {
     "type": "git",

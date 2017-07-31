@@ -33,6 +33,8 @@ I didn't have time to document here in the readme, but every method in the sourc
 
 It's really simple to use. I hope I can get some time to make a QuickStart guide + document the API methods here.
 
+You can read my post in Medium about this module: [How to tell to a headless Google Chrome to write a post in Medium for you](https://medium.com/@lucho_1312/how-to-tell-to-a-headless-google-chrome-to-write-a-post-in-medium-for-you-cbee3272f2fa)
+
 # Collaboration
 
 If you want to collaborate with the project, in any way (documentation, examples, fixes, etc), just send a PR :)
@@ -247,9 +249,19 @@ Simulate a keypress on a selector
 
 **Parameters**
 
--   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selctor to type into.
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector to type into.
 -   `text` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The text to type.
 -   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+-   `opts`  
+-   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Lets you send keys like control & shift
+
+## typeText
+
+Types text (doesn't matter where it is)
+
+**Parameters**
+
+-   `text` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The text to type.
 -   `opts`  
 -   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Lets you send keys like control & shift
 
@@ -274,6 +286,7 @@ Fire a key event.
 -   `type` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The type of key event. (optional, default `keypress`)
 -   `key` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The key to use for the event. (optional, default `null`)
 -   `modifier` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The keyboard modifier to use. (optional, default `0`)
+-   `windowsVirtualKeyCode`   (optional, default `0`)
 
 ## wait
 
