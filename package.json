@@ -5,13 +5,12 @@
   "main": "index.js",
   "scripts": {
     "documentation": "documentation readme lib/actions.js --section=Methods",
-    "build": "babel lib -d build",
+    "build": "rm -rf build; babel lib -d build",
     "watch": "babel --watch lib -d build",
     "prepublish": "npm run build",
     "prepare": "npm run build",
     "preversion": "npm run -s documentation",
-    "test": "DEBUG=\"HeadlessChrome:browser,HeadlessChrome:tab,HeadlessChrome:actions\" tap test 'lib/test/**/*.js' -T"
-    
+    "test": "npm run build; DEBUG='HeadlessChrome' tap test 'build/test/**/*.js' -T"
   },
   "repository": {
     "type": "git",
