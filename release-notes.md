@@ -1,3 +1,33 @@
+# Release notes for version 4.0.0
+- Removed breaking changes support for previous versions. 
+
+Now the new syntax is like this: 
+```js
+const HeadlessChrome = require('simple-headless-chrome')
+
+// This creates a new browser instance
+const browser = new HeadlessChrome({
+  headless: true 
+})
+async function navigateWebsite() {
+  // This initializates the browser
+  await browser.init()
+
+  // This creates and connects to a new tab in the browser
+  const mainTab = await browser.newTab({  
+    privateTab: false // (Optional) Defaults to false
+  })
+
+  // Navigate to a URL
+  await mainTab.goTo('http://www.mywebsite.com/login')
+
+  // ... etc ... 
+
+  // Closes the browser
+  await browser.close()
+```
+
+
 # Release notes for version 3.3.0
 - Add support for tabs and private tabs (last ones only in headless mode)
 - Some configuration variables have been moved inside different object properties, to keep certain order and clarity for future features
