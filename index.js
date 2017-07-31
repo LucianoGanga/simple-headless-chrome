@@ -1,3 +1,3 @@
 require('babel-polyfill')
 
-module.exports = require('./lib/Browser.js')
+module.exports = require('./build/Browser.js')
