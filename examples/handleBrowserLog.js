@@ -37,6 +37,7 @@ async function navigateWebsite () {
     })
     await mainTab.goTo('https://www.facebook.com')
 
+    // example.org has the favicon.ico missing, so it throws an error in the browser console (useful to test this example)
     await mainTab.goTo('https://www.example.org')
 
     await browser.close()
