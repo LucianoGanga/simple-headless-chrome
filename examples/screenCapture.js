@@ -5,10 +5,10 @@ const browser = new HeadlessChrome({
 })
 async function navigateWebsite () {
   await browser.init()
-  
-  //Open a new Tab 
+
+  // Open a new Tab
   const mainTab = await browser.newTab({ privateTab: false })
-  
+
   // Navigate to a URL
   await mainTab.goTo('https://github.com/LucianoGanga/simple-headless-chrome')
 
