@@ -455,14 +455,23 @@ Takes a screenshot of the page and returns it as a string
 **Parameters**
 
 -   `captureOptions` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options object
-    Options properties: (optional, default `{}`)
+    Options properties:
+    -   `captureOptions.format`   (optional, default `'png'`)
+    -   `captureOptions.quality`  
+    -   `captureOptions.clip`   (optional, default `{x:0,y:0,width:this.options.deviceMetrics.width,height:this.options.deviceMetrics.height,scale:this.options.deviceMetrics.deviceScaleFactor}`)
+    -   `captureOptions.fromSurface`  
+    -   `captureOptions.selector`  
+    -   `captureOptions.fullPage`  
 -   `returnBinary` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If true, returns as binary. Otherwise, returns a base64 string (optional, default `false`)
 
 **Properties**
 
--   `format` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Image compression format (defaults to png). Allowed values: jpeg, png.
--   `quality` **integer** Compression quality from range [0..100] \(jpeg only).
--   `fromSurface` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Capture the screenshot from the surface, rather than the view. Defaults to false. EXPERIMENTAL
+-   `format` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Image compression format (defaults to png). Allowed values: jpeg, png.
+-   `quality` **integer?** Compression quality from range [0..100] \(jpeg only).
+-   `clip` **ViewPort?** Capture the screenshot of a given viewport/region only (<https://chromedevtools.github.io/devtools-protocol/tot/Page/#type-Viewport>)
+-   `fromSurface` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** Capture the screenshot from the surface, rather than the view. Defaults to false. EXPERIMENTAL
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** The selector to be captured. If empty, will capture the page
+-   `fullPage` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** If true, captures the full page height
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Binary or Base64 string with the image data
 
@@ -475,14 +484,34 @@ Saves a screenshot of the page
 -   `fileName` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Path and Name of the file (without the extension) (optional, default `` `screenshot-${Date.now()}` ``)
 -   `captureOptions` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options object
     Options properties: (optional, default `{}`)
+    -   `captureOptions.format`   (optional, default `'png'`)
+    -   `captureOptions.quality`  
+    -   `captureOptions.clip`  
+    -   `captureOptions.fromSurface`  
+    -   `captureOptions.selector`  
+    -   `captureOptions.fullPage`  
 
 **Properties**
 
 -   `format` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Image compression format (defaults to png). Allowed values: jpeg, png.
 -   `quality` **integer** Compression quality from range [0..100] \(jpeg only).
+-   `clip` **ViewPort** Capture the screenshot of a given region only (<https://chromedevtools.github.io/devtools-protocol/tot/Page/#type-Viewport>)
 -   `fromSurface` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Capture the screenshot from the surface, rather than the view. Defaults to false. EXPERIMENTAL
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** The selector to be captured. If empty, will capture the page
+-   `fullPage` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** If true, captures the full page height
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Binary or Base64 string with the image data
+
+## getSelectorViewport
+
+Get the Viewport of the element matching a selector
+
+**Parameters**
+
+-   `selector` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The selector string
+-   `frameId` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The FrameID where the selector should be searched
+
+Returns **Viewport** Object with the viewport properties (<https://chromedevtools.github.io/devtools-protocol/tot/Page/#type-Viewport>)
 
 ## getFrames
 

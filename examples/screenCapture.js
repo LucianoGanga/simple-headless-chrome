@@ -14,15 +14,15 @@ async function navigateWebsite () {
     await mainTab.goTo('https://github.com/LucianoGanga/simple-headless-chrome')
 
     // Take a screenshot of the selector with the files
-    await mainTab.saveScreenshot('./simple-headless-chrome-files', {
+    await mainTab.saveScreenshot('./examples/simple-headless-chrome-files', {
       selector: '.file-wrap'
     })
 
     // Take a screenshot with the screen size
-    await mainTab.saveScreenshot('./simple-headless-chrome-screen')
+    await mainTab.saveScreenshot('./examples/simple-headless-chrome-screen')
 
     // Take a screenshot of the full page
-    await mainTab.saveScreenshot('./simple-headless-chrome-full', {
+    await mainTab.saveScreenshot('./examples/simple-headless-chrome-full', {
       fullPage: true
     })
 
