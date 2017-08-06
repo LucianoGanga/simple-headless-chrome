@@ -1,7 +1,7 @@
 const HeadlessChrome = require('../index')
 
 const browser = new HeadlessChrome({
-  headless: false
+  headless: true
 })
 async function navigateWebsite () {
   await browser.init()
@@ -10,6 +10,6 @@ async function navigateWebsite () {
   })
   await mainTab.goTo('https://github.com/LucianoGanga/simple-headless-chrome')
 
-  await mainTab.close()
+  await browser.close()
 }
 navigateWebsite()
