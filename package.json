@@ -9,6 +9,7 @@
     "watch": "babel --watch lib -d build",
     "prepublish": "npm run build",
     "prepare": "npm run build",
+    "prepare-minor": "npm version minor; git push; git push --tags; npm publish",
     "prepare-patch": "npm version patch; git push; git push --tags; npm publish",
     "preversion": "npm run -s documentation",
     "test": "npm run build; DEBUG='HeadlessChrome' tap test 'build/test/**/*.js'"
