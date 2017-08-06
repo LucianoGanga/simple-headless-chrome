@@ -461,7 +461,7 @@ Takes a screenshot of the page and returns it as a string
 **Properties**
 
 -   `format` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Image compression format (defaults to png). Allowed values: jpeg, png.
--   `quality` **integer** Compression quality from range [0..100](<jpeg only>).
+-   `quality` **integer** Compression quality from range [0..100] \(jpeg only).
 -   `fromSurface` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Capture the screenshot from the surface, rather than the view. Defaults to false. EXPERIMENTAL
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Binary or Base64 string with the image data
@@ -479,7 +479,7 @@ Saves a screenshot of the page
 **Properties**
 
 -   `format` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Image compression format (defaults to png). Allowed values: jpeg, png.
--   `quality` **integer** Compression quality from range [0..100](<jpeg only>).
+-   `quality` **integer** Compression quality from range [0..100] \(jpeg only).
 -   `fromSurface` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Capture the screenshot from the surface, rather than the view. Defaults to false. EXPERIMENTAL
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Binary or Base64 string with the image data
