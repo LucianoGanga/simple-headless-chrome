@@ -4,21 +4,25 @@ const browser = new HeadlessChrome({
   headless: false
 })
 async function navigateWebsite () {
-  await browser.init()
+  try {
+    await browser.init()
 
   // Open a new Tab
-  const mainTab = await browser.newTab({ privateTab: false })
+    const mainTab = await browser.newTab({ privateTab: false })
 
   // Navigate to a URL
-  await mainTab.goTo('https://github.com/LucianoGanga/simple-headless-chrome')
+    await mainTab.goTo('https://github.com/LucianoGanga/simple-headless-chrome')
 
   // Resize the viewport to full screen size (One use is to take full size screen shots)
   // await browser.resizeFullScreen()
 
   // Take a screenshot
-  await mainTab.saveScreenshot('./google')
+    await mainTab.saveScreenshot('./google')
 
   // Close the browser
-  await browser.close()
+    await browser.close()
+  } catch (err) {
+    console.log('ERROR!', err)
+  }
 }
 navigateWebsite()

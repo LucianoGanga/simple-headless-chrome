@@ -20,50 +20,54 @@ const browser = new HeadlessChrome({
   headless: false
 })
 async function postOnMedium () {
-  await browser.init()
+  try {
+    await browser.init()
 
-  const mainTab = await browser.newTab()
+    const mainTab = await browser.newTab()
 
   // Navigate to Medium
-  await mainTab.goTo('http://medium.com')
+    await mainTab.goTo('http://medium.com')
 
   // Click in logon / signup buttom
-  await mainTab.click('[data-action-source="nav_signup"]')
+    await mainTab.click('[data-action-source="nav_signup"]')
 
   // Authenticate with FB
-  await mainTab.click('[data-action="facebook-auth"]')
-  await mainTab.waitForPageToLoad()
+    await mainTab.click('[data-action="facebook-auth"]')
+    await mainTab.waitForPageToLoad()
 
-  await mainTab.type('input[name="email"]', 'email@example.com')
-  await mainTab.type('input[name="pass"]', 'myPassword')
-  await mainTab.click('#loginbutton')
+    await mainTab.type('input[name="email"]', 'email@example.com')
+    await mainTab.type('input[name="pass"]', 'myPassword')
+    await mainTab.click('#loginbutton')
 
-  await mainTab.waitForPageToLoad()
+    await mainTab.waitForPageToLoad()
 
   // Again wait for next page, as Facebook redirect us twice
-  await mainTab.waitForPageToLoad()
+    await mainTab.waitForPageToLoad()
 
   // Click the "new story" button
-  await mainTab.click('[data-action-source="nav_new_story"]')
-  await mainTab.wait(2000)
+    await mainTab.click('[data-action-source="nav_new_story"]')
+    await mainTab.wait(2000)
 
   // Write the Title
-  await mainTab.evaluate(function (title) {
-    document.querySelector('.graf.graf--h3').innerText = title
-  }, title)
+    await mainTab.evaluate(function (title) {
+      document.querySelector('.graf.graf--h3').innerText = title
+    }, title)
 
   // Write the post
-  await mainTab.typeText(text)
+    await mainTab.typeText(text)
 
-  await mainTab.wait(2000)
+    await mainTab.wait(2000)
   // Open the "Publish" menu
-  await mainTab.click('[data-action-source="post_edit_prepublish"]')
+    await mainTab.click('[data-action-source="post_edit_prepublish"]')
 
-  await mainTab.wait(3000)
+    await mainTab.wait(3000)
   // Publish the post!
-  await mainTab.click('[data-action="publish"]')
+    await mainTab.click('[data-action="publish"]')
 
   // Close the browser
-  await mainTab.close()
+    await mainTab.close()
+  } catch (err) {
+    console.log('ERROR!', err)
+  }
 }
 postOnMedium()
