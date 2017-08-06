@@ -588,56 +588,60 @@ const browser = new HeadlessChrome({
   // see above if using remote interface
 })
 async function navigateWebsite() {
-  await browser.init()
+  try {
+    await browser.init()
 
-  const mainTab = await browser.newTab({ privateTab: false })
+    const mainTab = await browser.newTab({ privateTab: false })
 
-  // Navigate to a URL
-  await mainTab.goTo('http://www.mywebsite.com/login')
+    // Navigate to a URL
+    await mainTab.goTo('http://www.mywebsite.com/login')
 
-  // Fill an element
-  await mainTab.fill('#username', 'myUser')
+    // Fill an element
+    await mainTab.fill('#username', 'myUser')
 
-  // Type in an element
-  await mainTab.type('#password', 'Yey!ImAPassword!')
+    // Type in an element
+    await mainTab.type('#password', 'Yey!ImAPassword!')
 
-  // Click on a button
-  await mainTab.click('#Login')
+    // Click on a button
+    await mainTab.click('#Login')
 
-  // Log some info in your console
-  await mainTab.log('Click login')
+    // Log some info in your console
+    await mainTab.log('Click login')
 
-  // Wait some time! (2s)
-  await mainTab.wait(2000)
+    // Wait some time! (2s)
+    await mainTab.wait(2000)
 
-  // Log some info in your console, ONLY if you started the app in DEBUG mode (DEBUG='HeadlessChrome*' npm start)
-  await mainTab.debugLog('Waiting 5 seconds to give some time to all the redirects')
+    // Log some info in your console, ONLY if you started the app in DEBUG mode (DEBUG='HeadlessChrome*' npm start)
+    await mainTab.debugLog('Waiting 5 seconds to give some time to all the redirects')
 
-  // Navigate a little...
-  await mainTab.goTo('http://www.mywebsite.com/myProfile')
+    // Navigate a little...
+    await mainTab.goTo('http://www.mywebsite.com/myProfile')
 
-  // Check the select current value
-  const myCurrentSubscriptionPlan = await mainTab.getValue('#subscriptionSelect')
-  console.log(myCurrentSubscriptionPlan) // {type: 'string', value: '1 month' }
+    // Check the select current value
+    const myCurrentSubscriptionPlan = await mainTab.getValue('#subscriptionSelect')
+    console.log(myCurrentSubscriptionPlan) // {type: 'string', value: '1 month' }
 
-  // Edit the subscription
-  await mainTab.select('#subscriptionSelect', '3 months')
-  await mainTab.click('#Save')
+    // Edit the subscription
+    await mainTab.select('#subscriptionSelect', '3 months')
+    await mainTab.click('#Save')
 
-  // Resize the viewport to full screen size (One use is to take full size screen shots)
-  await mainTab.resizeFullScreen()
+    // Resize the viewport to full screen size (One use is to take full size screen shots)
+    await mainTab.resizeFullScreen()
 
-  // Take a screenshot
-  await mainTab.saveScreenshot('./shc.png')
+    // Take a screenshot
+    await mainTab.saveScreenshot('./shc.png')
 
-  // Get a HTML tag value based on class id
-  const htmlTag = await mainTab.evaluate(function(selector) {
-    const selectorHtml = document.querySelector(selector)
-    return selectorHtml.innerHTML
-  }, '.main'); // returns innerHTML of first matching selector for class "main"
+    // Get a HTML tag value based on class id
+    const htmlTag = await mainTab.evaluate(function(selector) {
+        const selectorHtml = document.querySelector(selector)
+        return selectorHtml.innerHTML
+    }, '.main'); // returns innerHTML of first matching selector for class "main"
 
-  // Close the browser
-  await browser.close()
+    // Close the browser
+    await browser.close()
+  } catch (err) {
+    console.log('ERROR!', err)
+  }
  }
  navigateWebsite()
 ```
@@ -674,6 +678,8 @@ const browser = new HeadlessChrome({
 
 ### And more...
 
+-   [ ] Handle xpath besides regular selectors
+
 -   [ ] Separate the methods in the actions file in actions per Domain (see left menu here: <https://chromedevtools.github.io/devtools-protocol/tot/>)
 
 -   [x] Allow adding new targets/tabs and controlling them at the same time (<https://github.com/cyrus-and/chrome-remote-interface#cdpnewoptions-callback> and <https://github.com/cyrus-and/chrome-remote-interface/wiki/Inspect-a-new-tab>). Thanks @iyttor ! This was a great contribution! :D 
@@ -681,7 +687,7 @@ const browser = new HeadlessChrome({
 -   [ ] Improve existing methods:
     .getCookies - Should receive a cookie name and return only that one, or all the cookies if no key is specified
 
--   [ ] Bypass Certificate Errors (<https://github.com/cyrus-and/chrome-remote-interface/wiki/Bypass-certificate-errors-(%22Your-connection-is-not-private%22>)
+-   [x] Bypass Certificate Errors (<https://github.com/cyrus-and/chrome-remote-interface/wiki/Bypass-certificate-errors-(%22Your-connection-is-not-private%22)>) Thanks @trevan !
 
 -   [x] Add Target domain API
     So we can create tabs: <https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-createTarget>
