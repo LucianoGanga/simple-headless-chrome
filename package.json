@@ -7,7 +7,7 @@
     "documentation": "documentation readme lib/actions.js --section=Methods",
     "build": "rm -rf build; babel lib -d build",
     "watch": "babel --watch lib -d build",
-    "prepublish": "npm run build",
+    "prepublish": "npm run build; npm run test",
     "prepare": "npm run build",
     "prepare-minor": "npm version minor; git push; git push --tags; npm publish",
     "prepare-patch": "npm version patch; git push; git push --tags; npm publish",
