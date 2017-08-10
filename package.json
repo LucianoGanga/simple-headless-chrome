@@ -54,6 +54,7 @@
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "documentation": "^4.0.0-rc.1",
+    "jquery": "^3.2.1",
     "standard": "^10.0.2",
     "tap": "^10.7.0"
   }
