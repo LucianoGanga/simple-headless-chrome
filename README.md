@@ -35,6 +35,9 @@ It's really simple to use. I hope I can get some time to make a QuickStart guide
 
 You can read my post in Medium about this module: [How to tell to a headless Google Chrome to write a post in Medium for you](https://medium.com/@lucho_1312/how-to-tell-to-a-headless-google-chrome-to-write-a-post-in-medium-for-you-cbee3272f2fa)
 
+You can check a video of the module in action here: 
+[![A quick example](http://img.youtube.com/vi/m1Cr7bbM1Qk/0.jpg)](http://www.youtube.com/watch?v=m1Cr7bbM1Qk)
+
 # Collaboration
 
 If you want to collaborate with the project, in any way (documentation, examples, fixes, etc), just send a PR :)
