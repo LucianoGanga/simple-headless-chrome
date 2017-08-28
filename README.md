@@ -39,6 +39,18 @@ You can read my post in Medium about this module: [How to tell to a headless Goo
 
 [![A quick example](http://img.youtube.com/vi/m1Cr7bbM1Qk/0.jpg)](http://www.youtube.com/watch?v=m1Cr7bbM1Qk)
 
+# Features
+- Easy to use
+- Multiples Tabs navigation
+- Private tab navigation (incognito mode)
+- Cookies management
+- Full-size screenshots
+- Export to PDF
+- Docker compatible
+
+And comming soon...
+- Video capture (yes, you'll be able to record your navigation and save it as a video or gif)
+
 # Collaboration
 
 If you want to collaborate with the project, in any way (documentation, examples, fixes, etc), just send a PR :)
