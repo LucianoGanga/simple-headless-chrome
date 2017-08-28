@@ -1811,40 +1811,35 @@ exports.getCookies = _asyncToGenerator(regeneratorRuntime.mark(function _callee2
 
 /**
  * Set the browser cookies
- * @param {string} url - The request-URI to associate with the setting of the cookie.
  * @param {string} name - The name of the cookie.
  * @param {string} value - The value of the cookie.
- * @param {object} options - Options object
- * Options properties:
- *    @property {string} domain - If omitted, the cookie becomes a host-only cookie
- *    @property {string} path - Defaults to the path portion of the url parameter
- *    @property {boolean} secure - Defaults to false.
- *    @property {boolean} httpOnly - Defaults to false.
- *    @property {string} sameSite - Represents the cookie's 'SameSite' status: https://tools.ietf.org/html/draft-west-first-party-cookies
- *    @property {number} expirationDate - If omitted, cookie becomes a session cookie
+ * @param {string} url - The request-URI to associate with the setting of the cookie.
+ * @param {{
+ *    @property {object} options - Options object
+ *    @property {string} [domain] - If omitted, the cookie becomes a host-only cookie
+ *    @property {string} [path] - Defaults to the path portion of the url parameter
+ *    @property {boolean} [secure] - Defaults to false.
+ *    @property {boolean} [httpOnly] - Defaults to false.
+ *    @property {string} [sameSite] - Represents the cookie's 'SameSite' status: https://tools.ietf.org/html/draft-west-first-party-cookies
+ *    @property {number} [expirationDate] - If omitted, cookie becomes a session cookie
+ * }} options - additional options for setting the cookie (more info here: https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-setCookie)
  * @return {boolean} - True if successfully set cookie
  */
 exports.setCookie = function () {
-  var _ref32 = _asyncToGenerator(regeneratorRuntime.mark(function _callee30(url, name, value) {
+  var _ref32 = _asyncToGenerator(regeneratorRuntime.mark(function _callee30(name, value) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var setCookieOptions;
     return regeneratorRuntime.wrap(function _callee30$(_context30) {
       while (1) {
         switch (_context30.prev = _context30.next) {
           case 0:
-            debug(`:: setCookie => Setting browser cookie for url ${url}`);
+            debug(`:: setCookie => Setting browser cookie "${name}" with value "${value}". Additional options: ${options}`);
             browserIsInitialized.call(this);
 
-            return _context30.abrupt('return', this.client.Network.setCookie({
-              url: url,
-              name: name,
-              value: value,
-              domain: domain,
-              path: path,
-              secure: secure,
-              httpOnly: httpOnly,
-              sameSite: sameSite
-            }));
+            setCookieOptions = Object.assign({ name, value }, options);
+            return _context30.abrupt('return', this.client.Network.setCookie(setCookieOptions));
 
-          case 3:
+          case 4:
           case 'end':
             return _context30.stop();
         }
@@ -1852,10 +1847,31 @@ exports.setCookie = function () {
     }, _callee30, this);
   }));
 
-  return function (_x54, _x55, _x56) {
+  return function (_x55, _x56) {
     return _ref32.apply(this, arguments);
   };
 }();
+
+/**
+ * Clear the browser cookies
+ */
+exports.clearBrowserCookies = _asyncToGenerator(regeneratorRuntime.mark(function _callee31() {
+  return regeneratorRuntime.wrap(function _callee31$(_context31) {
+    while (1) {
+      switch (_context31.prev = _context31.next) {
+        case 0:
+          debug(`:: clearBrowserCookies => Clearing browser cookies`);
+          browserIsInitialized.call(this);
+
+          return _context31.abrupt('return', this.client.Network.clearBrowserCookies());
+
+        case 3:
+        case 'end':
+          return _context31.stop();
+      }
+    }
+  }, _callee31, this);
+}));
 
 /**
  * Checks if an element matches the selector
@@ -1865,39 +1881,39 @@ exports.setCookie = function () {
  */
 // TODO: make use of the "frameId" parameter in this fn, and avoid using this.evaluate()
 exports.exist = function () {
-  var _ref33 = _asyncToGenerator(regeneratorRuntime.mark(function _callee31(selector, frameId) {
+  var _ref34 = _asyncToGenerator(regeneratorRuntime.mark(function _callee32(selector, frameId) {
     var exist;
-    return regeneratorRuntime.wrap(function _callee31$(_context31) {
+    return regeneratorRuntime.wrap(function _callee32$(_context32) {
       while (1) {
-        switch (_context31.prev = _context31.next) {
+        switch (_context32.prev = _context32.next) {
           case 0:
             debug(`:: exist => Exist element with selector "${selector}" for frame "${frameId || 'root'}"?`);
             browserIsInitialized.call(this);
             selector = fixSelector(selector);
 
-            _context31.next = 5;
+            _context32.next = 5;
             return this.evaluate(function (selector) {
               return !!document.querySelector(selector);
             }, selector);
 
           case 5:
-            exist = _context31.sent;
+            exist = _context32.sent;
 
 
             debug(`:: exist => Exist: "${exist.result.value}"`);
 
-            return _context31.abrupt('return', exist.result.value);
+            return _context32.abrupt('return', exist.result.value);
 
           case 8:
           case 'end':
-            return _context31.stop();
+            return _context32.stop();
         }
       }
-    }, _callee31, this);
+    }, _callee32, this);
   }));
 
   return function (_x57, _x58) {
-    return _ref33.apply(this, arguments);
+    return _ref34.apply(this, arguments);
   };
 }();
 
@@ -1909,11 +1925,11 @@ exports.exist = function () {
  */
 // TODO: make use of the "frameId" parameter in this fn, and avoid using this.evaluate()
 exports.visible = function () {
-  var _ref34 = _asyncToGenerator(regeneratorRuntime.mark(function _callee32(selector, frameId) {
+  var _ref35 = _asyncToGenerator(regeneratorRuntime.mark(function _callee33(selector, frameId) {
     var visible;
-    return regeneratorRuntime.wrap(function _callee32$(_context32) {
+    return regeneratorRuntime.wrap(function _callee33$(_context33) {
       while (1) {
-        switch (_context32.prev = _context32.next) {
+        switch (_context33.prev = _context33.next) {
           case 0:
             debug(`:: visible => Visible element with selector "${selector}" for frame "${frameId || 'root'}"?`);
             browserIsInitialized.call(this);
@@ -1938,18 +1954,18 @@ exports.visible = function () {
 
             debug(`:: visible => Visible: "${visible.result.value}"`);
 
-            return _context32.abrupt('return', visible.result.value);
+            return _context33.abrupt('return', visible.result.value);
 
           case 5:
           case 'end':
-            return _context32.stop();
+            return _context33.stop();
         }
       }
-    }, _callee32, this);
+    }, _callee33, this);
   }));
 
   return function (_x59, _x60) {
-    return _ref34.apply(this, arguments);
+    return _ref35.apply(this, arguments);
   };
 }();
 
@@ -1971,35 +1987,35 @@ exports.visible = function () {
  *    @property {string} pageRanges - Paper ranges to print, e.g., '1-5, 8, 11-13'. Defaults to the empty string, which means print all pages.
  * @return {string} - Binary or Base64 string with the PDF data
  */
-exports.printToPDF = _asyncToGenerator(regeneratorRuntime.mark(function _callee33() {
+exports.printToPDF = _asyncToGenerator(regeneratorRuntime.mark(function _callee34() {
   var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var returnBinary = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   var pdf;
-  return regeneratorRuntime.wrap(function _callee33$(_context33) {
+  return regeneratorRuntime.wrap(function _callee34$(_context34) {
     while (1) {
-      switch (_context33.prev = _context33.next) {
+      switch (_context34.prev = _context34.next) {
         case 0:
           debug(`:: printToPDF => Printing page to PDF with options: ${JSON.stringify(options, null, 2)}. Returning as ${returnBinary ? 'binary' : 'base64'} string`);
           browserIsInitialized.call(this);
-          _context33.next = 4;
+          _context34.next = 4;
           return this.client.Page.printToPDF(options);
 
         case 4:
-          pdf = _context33.sent.data;
+          pdf = _context34.sent.data;
 
 
           if (returnBinary) {
             pdf = Buffer.from(pdf, 'base64');
           }
 
-          return _context33.abrupt('return', pdf);
+          return _context34.abrupt('return', pdf);
 
         case 7:
         case 'end':
-          return _context33.stop();
+          return _context34.stop();
       }
     }
-  }, _callee33, this);
+  }, _callee34, this);
 }));
 
 /**
@@ -2016,26 +2032,26 @@ exports.printToPDF = _asyncToGenerator(regeneratorRuntime.mark(function _callee3
  * @return {string} - Binary or Base64 string with the image data
  */
 exports.getScreenshot = function () {
-  var _ref37 = _asyncToGenerator(regeneratorRuntime.mark(function _callee34(_ref36) {
-    var _ref36$format = _ref36.format,
-        format = _ref36$format === undefined ? 'png' : _ref36$format,
-        quality = _ref36.quality,
-        _ref36$clip = _ref36.clip,
-        clip = _ref36$clip === undefined ? {
+  var _ref38 = _asyncToGenerator(regeneratorRuntime.mark(function _callee35(_ref37) {
+    var _ref37$format = _ref37.format,
+        format = _ref37$format === undefined ? 'png' : _ref37$format,
+        quality = _ref37.quality,
+        _ref37$clip = _ref37.clip,
+        clip = _ref37$clip === undefined ? {
       x: 0,
       y: 0,
       width: this.options.deviceMetrics.width,
       height: this.options.deviceMetrics.height,
       scale: this.options.deviceMetrics.deviceScaleFactor
-    } : _ref36$clip,
-        fromSurface = _ref36.fromSurface,
-        selector = _ref36.selector,
-        fullPage = _ref36.fullPage;
+    } : _ref37$clip,
+        fromSurface = _ref37.fromSurface,
+        selector = _ref37.selector,
+        fullPage = _ref37.fullPage;
     var returnBinary = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     var screenshotSettings, screenshot;
-    return regeneratorRuntime.wrap(function _callee34$(_context34) {
+    return regeneratorRuntime.wrap(function _callee35$(_context35) {
       while (1) {
-        switch (_context34.prev = _context34.next) {
+        switch (_context35.prev = _context35.next) {
           case 0:
             debug(`:: getScreenshot => Taking a screenshot of the ${selector ? 'selector "' + selector + '"' : 'page'}. Returning as ${returnBinary ? 'binary' : 'base64'} string`);
             browserIsInitialized.call(this);
@@ -2048,7 +2064,7 @@ exports.getScreenshot = function () {
             // Validate screenshot format
 
             if (!(format !== 'jpeg' && format !== 'png')) {
-              _context34.next = 6;
+              _context35.next = 6;
               break;
             }
 
@@ -2064,34 +2080,34 @@ exports.getScreenshot = function () {
             };
 
             if (!(fullPage === true)) {
-              _context34.next = 11;
+              _context35.next = 11;
               break;
             }
 
-            _context34.next = 10;
+            _context35.next = 10;
             return this.resizeFullScreen();
 
           case 10:
-            screenshotSettings.clip = _context34.sent;
+            screenshotSettings.clip = _context35.sent;
 
           case 11:
             if (!selector) {
-              _context34.next = 15;
+              _context35.next = 15;
               break;
             }
 
-            _context34.next = 14;
+            _context35.next = 14;
             return this.getSelectorViewport(selector);
 
           case 14:
-            screenshotSettings.clip = _context34.sent;
+            screenshotSettings.clip = _context35.sent;
 
           case 15:
-            _context34.next = 17;
+            _context35.next = 17;
             return this.client.Page.captureScreenshot(screenshotSettings);
 
           case 17:
-            screenshot = _context34.sent.data;
+            screenshot = _context35.sent.data;
 
 
             if (returnBinary) {
@@ -2099,18 +2115,18 @@ exports.getScreenshot = function () {
             }
             debug(`:: getScreenshot => Screenshot took!`);
 
-            return _context34.abrupt('return', screenshot);
+            return _context35.abrupt('return', screenshot);
 
           case 21:
           case 'end':
-            return _context34.stop();
+            return _context35.stop();
         }
       }
-    }, _callee34, this);
+    }, _callee35, this);
   }));
 
   return function (_x64) {
-    return _ref37.apply(this, arguments);
+    return _ref38.apply(this, arguments);
   };
 }();
 
@@ -2127,21 +2143,21 @@ exports.getScreenshot = function () {
  *    @property {boolean}   [fullPage] - If true, captures the full page height
  * @return {string} - Binary or Base64 string with the image data
  */
-exports.saveScreenshot = _asyncToGenerator(regeneratorRuntime.mark(function _callee35() {
+exports.saveScreenshot = _asyncToGenerator(regeneratorRuntime.mark(function _callee36() {
   var fileName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : `screenshot-${Date.now()}`;
 
-  var _ref39 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-      _ref39$format = _ref39.format,
-      format = _ref39$format === undefined ? 'png' : _ref39$format,
-      quality = _ref39.quality,
-      clip = _ref39.clip,
-      fromSurface = _ref39.fromSurface,
-      selector = _ref39.selector,
-      fullPage = _ref39.fullPage;
+  var _ref40 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      _ref40$format = _ref40.format,
+      format = _ref40$format === undefined ? 'png' : _ref40$format,
+      quality = _ref40.quality,
+      clip = _ref40.clip,
+      fromSurface = _ref40.fromSurface,
+      selector = _ref40.selector,
+      fullPage = _ref40.fullPage;
 
-  return regeneratorRuntime.wrap(function _callee35$(_context35) {
+  return regeneratorRuntime.wrap(function _callee36$(_context36) {
     while (1) {
-      switch (_context35.prev = _context35.next) {
+      switch (_context36.prev = _context36.next) {
         case 0:
           debug(`:: saveScreenshot => Saving a screenshot of the  ${selector ? 'selector "' + selector + '"' : 'page'}...`);
           browserIsInitialized.call(this);
@@ -2154,15 +2170,15 @@ exports.saveScreenshot = _asyncToGenerator(regeneratorRuntime.mark(function _cal
           // Validate screenshot format
 
           if (!(format !== 'jpeg' && format !== 'png')) {
-            _context35.next = 6;
+            _context36.next = 6;
             break;
           }
 
           throw new Error(`Invalid format "${format}" for the screenshot. Allowed values: "jpeg" and "png".`);
 
         case 6:
-          _context35.t0 = fs;
-          _context35.next = 9;
+          _context36.t0 = fs;
+          _context36.next = 9;
           return this.getScreenshot({
             format,
             quality,
@@ -2173,20 +2189,20 @@ exports.saveScreenshot = _asyncToGenerator(regeneratorRuntime.mark(function _cal
           });
 
         case 9:
-          _context35.t1 = _context35.sent;
-          _context35.next = 12;
-          return _context35.t0.writeFile.call(_context35.t0, `${fileName}.${format}`, _context35.t1, 'base64');
+          _context36.t1 = _context36.sent;
+          _context36.next = 12;
+          return _context36.t0.writeFile.call(_context36.t0, `${fileName}.${format}`, _context36.t1, 'base64');
 
         case 12:
           debug(`:: saveScreenshot => Screenshot saved!`);
-          return _context35.abrupt('return', `${fileName}.${format}`);
+          return _context36.abrupt('return', `${fileName}.${format}`);
 
         case 14:
         case 'end':
-          return _context35.stop();
+          return _context36.stop();
       }
     }
-  }, _callee35, this);
+  }, _callee36, this);
 }));
 
 /**
@@ -2196,27 +2212,27 @@ exports.saveScreenshot = _asyncToGenerator(regeneratorRuntime.mark(function _cal
  * @return {Viewport} - Object with the viewport properties (https://chromedevtools.github.io/devtools-protocol/tot/Page/#type-Viewport)
  */
 exports.getSelectorViewport = function () {
-  var _ref40 = _asyncToGenerator(regeneratorRuntime.mark(function _callee36(selector, frameId) {
+  var _ref41 = _asyncToGenerator(regeneratorRuntime.mark(function _callee37(selector, frameId) {
     var node, boxModel, viewport;
-    return regeneratorRuntime.wrap(function _callee36$(_context36) {
+    return regeneratorRuntime.wrap(function _callee37$(_context37) {
       while (1) {
-        switch (_context36.prev = _context36.next) {
+        switch (_context37.prev = _context37.next) {
           case 0:
             debug(`:: getSelectorViewport => Getting viewport for element with selector "${selector}" for frame "${frameId || 'root'}"?`);
             browserIsInitialized.call(this);
 
             selector = fixSelector(selector);
 
-            _context36.next = 5;
+            _context37.next = 5;
             return this.querySelector(selector, frameId);
 
           case 5:
-            node = _context36.sent;
-            _context36.next = 8;
+            node = _context37.sent;
+            _context37.next = 8;
             return this.client.DOM.getBoxModel({ nodeId: node.nodeId });
 
           case 8:
-            boxModel = _context36.sent;
+            boxModel = _context37.sent;
             viewport = {
               x: boxModel.model.margin[0],
               y: boxModel.model.margin[1],
@@ -2228,18 +2244,18 @@ exports.getSelectorViewport = function () {
 
             debug(`:: getSelectorViewport => Viewport: "${viewport}"`);
 
-            return _context36.abrupt('return', viewport);
+            return _context37.abrupt('return', viewport);
 
           case 12:
           case 'end':
-            return _context36.stop();
+            return _context37.stop();
         }
       }
-    }, _callee36, this);
+    }, _callee37, this);
   }));
 
   return function (_x67, _x68) {
-    return _ref40.apply(this, arguments);
+    return _ref41.apply(this, arguments);
   };
 }();
 
@@ -2247,74 +2263,74 @@ exports.getSelectorViewport = function () {
  * Get the list of frames in the loaded page
  * @return {object} - List of frames, with childFrames
  */
-exports.getFrames = _asyncToGenerator(regeneratorRuntime.mark(function _callee37() {
+exports.getFrames = _asyncToGenerator(regeneratorRuntime.mark(function _callee38() {
   var frames, resourceTree;
-  return regeneratorRuntime.wrap(function _callee37$(_context37) {
+  return regeneratorRuntime.wrap(function _callee38$(_context38) {
     while (1) {
-      switch (_context37.prev = _context37.next) {
+      switch (_context38.prev = _context38.next) {
         case 0:
           debug(`:: getFrames => Getting frames list`);
           browserIsInitialized.call(this);
           frames = [];
-          _context37.next = 5;
+          _context38.next = 5;
           return this.client.Page.getResourceTree();
 
         case 5:
-          resourceTree = _context37.sent;
+          resourceTree = _context38.sent;
 
           frames.push(resourceTree.frameTree.frame);
           _.each(resourceTree.frameTree.childFrames, function (frameObj) {
             frames.push(frameObj.frame);
           });
-          return _context37.abrupt('return', frames);
+          return _context38.abrupt('return', frames);
 
         case 9:
         case 'end':
-          return _context37.stop();
+          return _context38.stop();
       }
     }
-  }, _callee37, this);
+  }, _callee38, this);
 }));
 
 /**
  * Resize viewports of the page to full screen size
  */
-exports.resizeFullScreen = _asyncToGenerator(regeneratorRuntime.mark(function _callee38() {
-  var _client, DOM, Emulation, _ref43, documentNodeId, _ref44, bodyNodeId, deviceMetrics, _ref45, height, fullPageViewport;
+exports.resizeFullScreen = _asyncToGenerator(regeneratorRuntime.mark(function _callee39() {
+  var _client, DOM, Emulation, _ref44, documentNodeId, _ref45, bodyNodeId, deviceMetrics, _ref46, height, fullPageViewport;
 
-  return regeneratorRuntime.wrap(function _callee38$(_context38) {
+  return regeneratorRuntime.wrap(function _callee39$(_context39) {
     while (1) {
-      switch (_context38.prev = _context38.next) {
+      switch (_context39.prev = _context39.next) {
         case 0:
           debug(`:: resizeFullScreen => Resizing viewport to full screen size`);
           _client = this.client, DOM = _client.DOM, Emulation = _client.Emulation;
-          _context38.next = 4;
+          _context39.next = 4;
           return DOM.getDocument();
 
         case 4:
-          _ref43 = _context38.sent;
-          documentNodeId = _ref43.root.nodeId;
-          _context38.next = 8;
+          _ref44 = _context39.sent;
+          documentNodeId = _ref44.root.nodeId;
+          _context39.next = 8;
           return DOM.querySelector({
             selector: 'body',
             nodeId: documentNodeId
           });
 
         case 8:
-          _ref44 = _context38.sent;
-          bodyNodeId = _ref44.nodeId;
-          _context38.next = 12;
+          _ref45 = _context39.sent;
+          bodyNodeId = _ref45.nodeId;
+          _context39.next = 12;
           return this.options.deviceMetrics;
 
         case 12:
-          deviceMetrics = _context38.sent;
-          _context38.next = 15;
+          deviceMetrics = _context39.sent;
+          _context39.next = 15;
           return DOM.getBoxModel({ nodeId: bodyNodeId });
 
         case 15:
-          _ref45 = _context38.sent;
-          height = _ref45.model.height;
-          _context38.next = 19;
+          _ref46 = _context39.sent;
+          height = _ref46.model.height;
+          _context39.next = 19;
           return Emulation.setDeviceMetricsOverride({
             width: deviceMetrics.width,
             height: height,
@@ -2323,14 +2339,14 @@ exports.resizeFullScreen = _asyncToGenerator(regeneratorRuntime.mark(function _c
           });
 
         case 19:
-          _context38.next = 21;
+          _context39.next = 21;
           return this.client.Emulation.setVisibleSize({
             width: deviceMetrics.width,
             height: height
           });
 
         case 21:
-          _context38.next = 23;
+          _context39.next = 23;
           return Emulation.setPageScaleFactor({ pageScaleFactor: deviceMetrics.deviceScaleFactor });
 
         case 23:
@@ -2341,14 +2357,14 @@ exports.resizeFullScreen = _asyncToGenerator(regeneratorRuntime.mark(function _c
             height: height,
             scale: deviceMetrics.deviceScaleFactor
           };
-          return _context38.abrupt('return', fullPageViewport);
+          return _context39.abrupt('return', fullPageViewport);
 
         case 25:
         case 'end':
-          return _context38.stop();
+          return _context39.stop();
       }
     }
-  }, _callee38, this);
+  }, _callee39, this);
 }));
 
 /**
@@ -2356,16 +2372,16 @@ exports.resizeFullScreen = _asyncToGenerator(regeneratorRuntime.mark(function _c
  * @param {boolean} [accept=true] - Whether to accept or dismiss the dialog
  * @param {string} [promptText] - The text to enter into the dialog prompt before accepting. Used only if this is a prompt dialog.
  */
-exports.handleDialog = _asyncToGenerator(regeneratorRuntime.mark(function _callee39() {
+exports.handleDialog = _asyncToGenerator(regeneratorRuntime.mark(function _callee40() {
   var accept = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
   var promptText = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-  return regeneratorRuntime.wrap(function _callee39$(_context39) {
+  return regeneratorRuntime.wrap(function _callee40$(_context40) {
     while (1) {
-      switch (_context39.prev = _context39.next) {
+      switch (_context40.prev = _context40.next) {
         case 0:
           debug(`:: handleDialog => Handling dialog on the page...`);
           browserIsInitialized.call(this);
-          _context39.next = 4;
+          _context40.next = 4;
           return this.client.Page.handleJavaScriptDialog({
             accept,
             promptText
@@ -2376,10 +2392,10 @@ exports.handleDialog = _asyncToGenerator(regeneratorRuntime.mark(function _calle
 
         case 5:
         case 'end':
-          return _context39.stop();
+          return _context40.stop();
       }
     }
-  }, _callee39, this);
+  }, _callee40, this);
 }));
 
 /**
@@ -2390,19 +2406,19 @@ exports.handleDialog = _asyncToGenerator(regeneratorRuntime.mark(function _calle
  * @return {object} - Request status and data
  */
 exports.post = function () {
-  var _ref47 = _asyncToGenerator(regeneratorRuntime.mark(function _callee40(url) {
+  var _ref48 = _asyncToGenerator(regeneratorRuntime.mark(function _callee41(url) {
     var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
     var requestData, requestOptions;
-    return regeneratorRuntime.wrap(function _callee40$(_context40) {
+    return regeneratorRuntime.wrap(function _callee41$(_context41) {
       while (1) {
-        switch (_context40.prev = _context40.next) {
+        switch (_context41.prev = _context41.next) {
           case 0:
             debug(`:: post => Posting on URL "${url}" data: ${JSON.stringify(data, null, 2)} with options ${options}...`);
             browserIsInitialized.call(this);
 
             if (url) {
-              _context40.next = 4;
+              _context41.next = 4;
               break;
             }
 
@@ -2419,7 +2435,7 @@ exports.post = function () {
               contentType: 'application/x-www-form-urlencoded',
               timeout: this.options.browser.loadPageTimeout
             }, options);
-            return _context40.abrupt('return', this.evaluateAsync(function (url, data, options) {
+            return _context41.abrupt('return', this.evaluateAsync(function (url, data, options) {
               return new Promise(function (resolve, reject) {
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', url);
@@ -2458,13 +2474,13 @@ exports.post = function () {
 
           case 8:
           case 'end':
-            return _context40.stop();
+            return _context41.stop();
         }
       }
-    }, _callee40, this);
+    }, _callee41, this);
   }));
 
   return function (_x73) {
-    return _ref47.apply(this, arguments);
+    return _ref48.apply(this, arguments);
   };
 }();

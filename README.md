@@ -119,11 +119,73 @@ Once you have the browser instance, you can call the methods to interact with it
 
 ## inject
 
-Injects a module in the page
+Injects JavaScript in the page
+
+Modules available: jQuery, jquery, jQuery.slim and jquery.slim
 
 **Parameters**
 
--   `name` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Name of the module to inject
+-   `moduleOrScript` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Javascript code, file, url or name of the
+    module to inject.
+
+**Examples**
+
+```javascript
+inject('jquery')
+
+You can use jsdelivr to inject any npm or github package in the page
+```
+
+```javascript
+inject('https://cdn.jsdelivr.net/npm/lodash@4/lodash.min.js')
+```
+
+```javascript
+inject('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js')
+
+You can inject a local Javascript file
+```
+
+```javascript
+inject('./custom-file.js')
+```
+
+```javascript
+inject(__dirname + '/path/to/file.js')
+
+Note: the path will be resolved with `require.resolve()` so you can include
+files that are in `node_modules` simply by installing them with NPM
+```
+
+```javascript
+inject('jquery/dist/jquery.min')
+```
+
+```javascript
+inject('lodash/dist/lodash.min')
+```
+
+## injectRemoteScript
+
+Injects a remote script in the page
+
+**Parameters**
+
+-   `src` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Url to remote JavaScript file
+
+**Examples**
+
+```javascript
+injectRemoteScript(https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js)
+```
+
+## injectScript
+
+Injects code in the DOM as script tag
+
+**Parameters**
+
+-   `script` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Code to be injected and evaluated in the DOM
 
 ## evaluate
 
@@ -398,11 +460,27 @@ Set the browser cookies
 
 **Parameters**
 
--   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The request-URI to associate with the setting of the cookie.
 -   `name` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The name of the cookie.
 -   `value` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The value of the cookie.
+-   `options`   (optional, default `{}`)
+-   `url` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The request-URI to associate with the setting of the cookie.
+
+**Properties**
+
+-   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options object
+-   `domain` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** If omitted, the cookie becomes a host-only cookie
+-   `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Defaults to the path portion of the url parameter
+-   `secure` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** Defaults to false.
+-   `httpOnly` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** Defaults to false.
+-   `sameSite` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Represents the cookie's 'SameSite' status: <https://tools.ietf.org/html/draft-west-first-party-cookies>
+-   `expirationDate` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)?** If omitted, cookie becomes a session cookie
+    }} options - additional options for setting the cookie (more info here: <https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-setCookie>)
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** True if successfully set cookie
+
+## clearBrowserCookies
+
+Clear the browser cookies
 
 ## exist
 
