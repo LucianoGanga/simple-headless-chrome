@@ -125,23 +125,20 @@ var Browser = function (_EventEmitter) {
               case 13:
                 _context.prev = 13;
                 _context.t0 = _context['catch'](6);
-                _context.next = 17;
-                return this.chromeInstance;
-
-              case 17:
-                _context.t1 = _context.sent;
+                _context.t1 = this.chromeInstance;
 
                 if (!_context.t1) {
-                  _context.next = 20;
+                  _context.next = 19;
                   break;
                 }
 
-                this.chromeInstance.kill();
+                _context.next = 19;
+                return this.chromeInstance.kill();
 
-              case 20:
+              case 19:
                 throw _context.t0;
 
-              case 21:
+              case 20:
               case 'end':
                 return _context.stop();
             }
@@ -322,7 +319,7 @@ var Browser = function (_EventEmitter) {
                 this.client = null;
                 this._tabs = [];
                 this._closedTabs = [];
-                _context4.t0 = exit;
+                _context4.t0 = exit && this.chromeInstance;
 
                 if (!_context4.t0) {
                   _context4.next = 14;
