@@ -504,32 +504,6 @@ Checks if an element matching a selector is visible
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Boolean indicating if element of selector is visible or not
 
-## printToPDF
-
-Prints the page to PDF
-
-**Parameters**
-
--   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options object
-    Options properties: (optional, default `{}`)
--   `returnBinary` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If true, returns as binary. Otherwise, returns a base64 string (optional, default `false`)
-
-**Properties**
-
--   `landscape` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Paper orientation. Defaults to false.
--   `displayHeaderFooter` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Display header and footer. Defaults to false.
--   `printBackground` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Print background graphics. Defaults to false.
--   `scale` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Scale of the webpage rendering. Defaults to 1.
--   `paperWidth` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Paper width in inches. Defaults to 8.5 inches.
--   `paperHeight` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Paper height in inches. Defaults to 11 inches.
--   `marginTop` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Top margin in inches. Defaults to 1cm (~0.4 inches).
--   `marginBottom` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Bottom margin in inches. Defaults to 1cm (~0.4 inches).
--   `marginLeft` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Left margin in inches. Defaults to 1cm (~0.4 inches).
--   `marginRight` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Right margin in inches. Defaults to 1cm (~0.4 inches).
--   `pageRanges` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Paper ranges to print, e.g., '1-5, 8, 11-13'. Defaults to the empty string, which means print all pages.
-
-Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Binary or Base64 string with the PDF data
-
 ## getScreenshot
 
 Takes a screenshot of the page and returns it as a string
@@ -563,7 +537,7 @@ Saves a screenshot of the page
 
 **Parameters**
 
--   `fileName` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Path and Name of the file (without the extension) (optional, default `` `screenshot-${Date.now()}` ``)
+-   `fileName` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Path and Name of the file (without the extension) (optional, default `` `screenshot-${Date.now()}` ``)
 -   `captureOptions` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options object
     Options properties: (optional, default `{}`)
     -   `captureOptions.format`   (optional, default `'png'`)
@@ -583,6 +557,56 @@ Saves a screenshot of the page
 -   `fullPage` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** If true, captures the full page height
 
 Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Binary or Base64 string with the image data
+
+## printToPDF
+
+Prints the page to PDF
+
+**Parameters**
+
+-   `options`   (optional, default `{}`)
+-   `returnBinary` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** If true, returns as binary. Otherwise, returns a base64 string (optional, default `false`)
+
+**Properties**
+
+-   `landscape` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Paper orientation. Defaults to false.
+-   `displayHeaderFooter` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Display header and footer. Defaults to false.
+-   `printBackground` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Print background graphics. Defaults to false.
+-   `scale` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Scale of the webpage rendering. Defaults to 1.
+-   `paperWidth` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Paper width in inches. Defaults to 8.5 inches.
+-   `paperHeight` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Paper height in inches. Defaults to 11 inches.
+-   `marginTop` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Top margin in inches. Defaults to 1cm (~0.4 inches).
+-   `marginBottom` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Bottom margin in inches. Defaults to 1cm (~0.4 inches).
+-   `marginLeft` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Left margin in inches. Defaults to 1cm (~0.4 inches).
+-   `marginRight` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Right margin in inches. Defaults to 1cm (~0.4 inches).
+-   `pageRanges` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Paper ranges to print, e.g., '1-5, 8, 11-13'. Defaults to the empty string, which means print all pages.
+    }} options - Options object
+
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Binary or Base64 string with the PDF data
+
+## savePdf
+
+Saves a PDF file of the page
+
+**Parameters**
+
+-   `fileName` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Path and Name of the file (optional, default `` `pdf-${Date.now()}` ``)
+-   `options`   (optional, default `{}`)
+
+**Properties**
+
+-   `landscape` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Paper orientation. Defaults to false.
+-   `displayHeaderFooter` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Display header and footer. Defaults to false.
+-   `printBackground` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Print background graphics. Defaults to false.
+-   `scale` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Scale of the webpage rendering. Defaults to 1.
+-   `paperWidth` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Paper width in inches. Defaults to 8.5 inches.
+-   `paperHeight` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Paper height in inches. Defaults to 11 inches.
+-   `marginTop` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Top margin in inches. Defaults to 1cm (~0.4 inches).
+-   `marginBottom` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Bottom margin in inches. Defaults to 1cm (~0.4 inches).
+-   `marginLeft` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Left margin in inches. Defaults to 1cm (~0.4 inches).
+-   `marginRight` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** Right margin in inches. Defaults to 1cm (~0.4 inches).
+-   `pageRanges` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Paper ranges to print, e.g., '1-5, 8, 11-13'. Defaults to the empty string, which means print all pages.
+    }} options - PDF options
 
 ## getSelectorViewport
 

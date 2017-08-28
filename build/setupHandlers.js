@@ -121,14 +121,23 @@ module.exports = function () {
               _this.emit.apply(_this, ['frameStartedLoading'].concat(params));
             });
 
+            Page.screencastFrame(function () {
+              for (var _len7 = arguments.length, params = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+                params[_key7] = arguments[_key7];
+              }
+
+              debug.apply(undefined, ['-- Page.screencastFrame'].concat(params));
+              _this.emit.apply(_this, ['screencastFrame'].concat(params));
+            });
+
             /**
              * Fired when a JavaScript initiated dialog (alert, confirm, prompt, or onbeforeunload) is about to open.
              * @param {string} message - Message that will be displayed by the dialog.
              * @param {string} type - Dialog type (Allowed values: alert, confirm, prompt, beforeunload)
              */
             Page.javascriptDialogOpening(function () {
-              for (var _len7 = arguments.length, params = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
-                params[_key7] = arguments[_key7];
+              for (var _len8 = arguments.length, params = Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {
+                params[_key8] = arguments[_key8];
               }
 
               debug.apply(undefined, ['-- Page.javascriptDialogOpening'].concat(params));
@@ -140,8 +149,8 @@ module.exports = function () {
              * @return {boolean} result - Whether dialog was confirmed.
              */
             Page.javascriptDialogClosed(function () {
-              for (var _len8 = arguments.length, params = Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {
-                params[_key8] = arguments[_key8];
+              for (var _len9 = arguments.length, params = Array(_len9), _key9 = 0; _key9 < _len9; _key9++) {
+                params[_key9] = arguments[_key9];
               }
 
               debug.apply(undefined, ['-- Page.javascriptDialogClosed'].concat(params));
@@ -149,15 +158,15 @@ module.exports = function () {
             });
 
             this.client.DOM.documentUpdated(function () {
-              for (var _len9 = arguments.length, params = Array(_len9), _key9 = 0; _key9 < _len9; _key9++) {
-                params[_key9] = arguments[_key9];
+              for (var _len10 = arguments.length, params = Array(_len10), _key10 = 0; _key10 < _len10; _key10++) {
+                params[_key10] = arguments[_key10];
               }
 
               debug.apply(undefined, ['-- DOM.documentUpdated'].concat(params));
               _this.emit.apply(_this, ['documentUpdated'].concat(params));
             });
 
-          case 30:
+          case 31:
           case 'end':
             return _context.stop();
         }
