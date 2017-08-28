@@ -2206,8 +2206,8 @@ exports.printToPDF = _asyncToGenerator(regeneratorRuntime.mark(function _callee3
 }));
 
 /**
- * Saves a screenshot of the page
- * @param {string} fileName - Path and Name of the file (without the extension)
+ * Saves a PDF file of the page
+ * @param {string} fileName - Path and Name of the file
  * @param {{
  *    @property {boolean} landscape - Paper orientation. Defaults to false.
  *    @property {boolean} displayHeaderFooter - Display header and footer. Defaults to false.
