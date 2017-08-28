@@ -1980,7 +1980,11 @@ exports.startScreencast = _asyncToGenerator(regeneratorRuntime.mark(function _ca
           debug(`:: startScreencast => Starting screencast...`);
           browserIsInitialized.call(this);
           _context34.next = 4;
-          return this.client.Page.startScreencast();
+          return this.client.Page.startScreencast({
+            format: 'png',
+            quality: 100,
+            everyNthFrame: 1
+          });
 
         case 4:
           debug(`:: startScreencast => Screencast started!`);

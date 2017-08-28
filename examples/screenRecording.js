@@ -16,7 +16,7 @@ async function navigateWebsite () {
     // Navigate to a URL
     await mainTab.goTo('http://infobae.com')
 
-    await mainTab.wait(5000)
+    await mainTab.wait(15000)
 
     await mainTab.stopScreencast()
 
