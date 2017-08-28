@@ -126,12 +126,22 @@ var Browser = function (_EventEmitter) {
                 _context.prev = 13;
                 _context.t0 = _context['catch'](6);
                 _context.next = 17;
-                return this.chromeInstance.kill();
+                return this.chromeInstance;
 
               case 17:
+                _context.t1 = _context.sent;
+
+                if (!_context.t1) {
+                  _context.next = 20;
+                  break;
+                }
+
+                this.chromeInstance.kill();
+
+              case 20:
                 throw _context.t0;
 
-              case 18:
+              case 21:
               case 'end':
                 return _context.stop();
             }
