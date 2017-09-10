@@ -1934,7 +1934,8 @@ exports.visible = function () {
             debug(`:: visible => Visible element with selector "${selector}" for frame "${frameId || 'root'}"?`);
             browserIsInitialized.call(this);
 
-            visible = this.evaluate(function (selector) {
+            _context33.next = 4;
+            return this.evaluate(function (selector) {
               var el = document.querySelector(selector);
               var style = void 0;
               try {
@@ -1951,12 +1952,15 @@ exports.visible = function () {
               return el.clientHeight > 0 && el.clientWidth > 0;
             }, selector);
 
+          case 4:
+            visible = _context33.sent;
+
 
             debug(`:: visible => Visible: "${visible.result.value}"`);
 
             return _context33.abrupt('return', visible.result.value);
 
-          case 5:
+          case 7:
           case 'end':
             return _context33.stop();
         }
