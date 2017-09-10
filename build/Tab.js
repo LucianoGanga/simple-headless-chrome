@@ -44,7 +44,7 @@ var Tab = function (_EventEmitter) {
   _createClass(Tab, [{
     key: 'init',
     value: function () {
-      var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         var Target, params;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
@@ -209,7 +209,7 @@ var Tab = function (_EventEmitter) {
   }, {
     key: 'close',
     value: function () {
-      var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
         var Target, tabId, tabContextId;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {

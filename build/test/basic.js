@@ -6,7 +6,7 @@ var HeadlessChrome = require('../../');
 var test = require('tap').test;
 
 test('Headless Chrome - Basic navigation', function () {
-  var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(group) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(group) {
     var _this = this;
 
     var browser, mainTab;
@@ -30,7 +30,7 @@ test('Headless Chrome - Basic navigation', function () {
 
 
             group.test('example.net', function () {
-              var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee(t) {
+              var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(t) {
                 var exampleDomain, mainTabEvaluate;
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                   while (1) {
@@ -67,7 +67,7 @@ test('Headless Chrome - Basic navigation', function () {
               };
             }());
 
-            group.tearDown(_asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
+            group.tearDown(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
               return regeneratorRuntime.wrap(function _callee2$(_context2) {
                 while (1) {
                   switch (_context2.prev = _context2.next) {

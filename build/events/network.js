@@ -8,7 +8,7 @@ var debug = require('debug')('HeadlessChrome:events:Network');
  * Register all the Network events of the Chrome DevTools Protocol
  * URL: https://chromedevtools.github.io/devtools-protocol/tot/Network/
  */
-module.exports = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+module.exports = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
   var _this = this;
 
   var Network, events, _loop, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, eventName;

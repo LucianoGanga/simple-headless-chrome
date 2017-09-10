@@ -6,7 +6,7 @@ var HeadlessChrome = require('../../');
 var test = require('tap').test;
 
 test('Headless Chrome - Tabs', function () {
-  var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee5(group) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(group) {
     var _this = this;
 
     var browser, tabA, tabB, targets;
@@ -36,7 +36,7 @@ test('Headless Chrome - Tabs', function () {
 
 
             group.test('Open 2 tabs', function () {
-              var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee(t) {
+              var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(t) {
                 var exampleDomain, google, tabAEvaluate, tabBEvaluate, _ref3, targetInfos;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -101,7 +101,7 @@ test('Headless Chrome - Tabs', function () {
             }());
 
             group.test('Close tab A', function () {
-              var _ref4 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(t) {
+              var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(t) {
                 var id, _ref5, targetInfos;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
@@ -137,7 +137,7 @@ test('Headless Chrome - Tabs', function () {
             }());
 
             group.test('Close tab B', function () {
-              var _ref6 = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(t) {
+              var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(t) {
                 var id, _ref7, targetInfos;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
@@ -172,7 +172,7 @@ test('Headless Chrome - Tabs', function () {
               };
             }());
 
-            group.tearDown(_asyncToGenerator(regeneratorRuntime.mark(function _callee4() {
+            group.tearDown(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
               return regeneratorRuntime.wrap(function _callee4$(_context4) {
                 while (1) {
                   switch (_context4.prev = _context4.next) {

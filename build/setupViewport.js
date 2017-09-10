@@ -4,7 +4,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var debug = require('debug')('HeadlessChrome:viewPort');
 
-module.exports = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+module.exports = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
   var deviceMetrics;
   return regeneratorRuntime.wrap(function _callee$(_context) {
     while (1) {

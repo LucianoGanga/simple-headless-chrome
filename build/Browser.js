@@ -92,7 +92,7 @@ var Browser = function (_EventEmitter) {
   _createClass(Browser, [{
     key: 'init',
     value: function () {
-      var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         var initializationOptions;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
@@ -163,7 +163,7 @@ var Browser = function (_EventEmitter) {
   }, {
     key: 'newTab',
     value: function () {
-      var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
         var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
             _ref3$privateTab = _ref3.privateTab,
             privateTab = _ref3$privateTab === undefined ? false : _ref3$privateTab;
@@ -234,7 +234,7 @@ var Browser = function (_EventEmitter) {
   }, {
     key: 'listTabs',
     value: function () {
-      var _ref4 = _asyncToGenerator(regeneratorRuntime.mark(function _callee3() {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
         var array, key;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
@@ -294,7 +294,7 @@ var Browser = function (_EventEmitter) {
   }, {
     key: 'close',
     value: function () {
-      var _ref5 = _asyncToGenerator(regeneratorRuntime.mark(function _callee4() {
+      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
         var exit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
@@ -361,7 +361,7 @@ var Browser = function (_EventEmitter) {
   }, {
     key: '_closeTarget',
     value: function () {
-      var _ref6 = _asyncToGenerator(regeneratorRuntime.mark(function _callee5(tabId) {
+      var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(tabId) {
         var target;
         return regeneratorRuntime.wrap(function _callee5$(_context5) {
           while (1) {

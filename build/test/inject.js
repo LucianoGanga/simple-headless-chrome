@@ -6,7 +6,7 @@ var HeadlessChrome = require('../../');
 var test = require('tap').test;
 
 test('Headless Chrome - inject methods', function () {
-  var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee6(group) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(group) {
     var _this = this;
 
     var browser, mainTab;
@@ -30,7 +30,7 @@ test('Headless Chrome - inject methods', function () {
 
 
             group.test('#inject(module)', function () {
-              var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee(t) {
+              var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(t) {
                 var result;
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                   while (1) {
@@ -70,7 +70,7 @@ test('Headless Chrome - inject methods', function () {
             }());
 
             group.test('#inject(remoteScript)', function () {
-              var _ref3 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(t) {
+              var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(t) {
                 var result;
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                   while (1) {
@@ -110,7 +110,7 @@ test('Headless Chrome - inject methods', function () {
             }());
 
             group.test('#inject(localFile)', function () {
-              var _ref4 = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(t) {
+              var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(t) {
                 var result;
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                   while (1) {
@@ -150,7 +150,7 @@ test('Headless Chrome - inject methods', function () {
             }());
 
             group.test('#injectScript(script)', function () {
-              var _ref5 = _asyncToGenerator(regeneratorRuntime.mark(function _callee4(t) {
+              var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(t) {
                 var result;
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                   while (1) {
@@ -189,7 +189,7 @@ test('Headless Chrome - inject methods', function () {
               };
             }());
 
-            group.tearDown(_asyncToGenerator(regeneratorRuntime.mark(function _callee5() {
+            group.tearDown(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
               return regeneratorRuntime.wrap(function _callee5$(_context5) {
                 while (1) {
                   switch (_context5.prev = _context5.next) {

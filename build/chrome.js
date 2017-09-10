@@ -31,7 +31,7 @@ var _require = require('./util'),
 
 
 module.exports.launch = function () {
-  var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(headless) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(headless) {
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var chromeOptions, attempt, instance, launchAttempts;
     return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -147,7 +147,7 @@ module.exports.launch = function () {
  * @param {boolean} remote - A boolean indicating whether the protocol must be fetched remotely or if the local version must be used
  * @return {object} - CDP Client object
  */
-module.exports.attachCdpToBrowser = _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
+module.exports.attachCdpToBrowser = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
   var host = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'localhost';
   var port = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 9222;
   var remote = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
@@ -193,7 +193,7 @@ module.exports.attachCdpToBrowser = _asyncToGenerator(regeneratorRuntime.mark(fu
  * @return {object} - CDP client object
  */
 module.exports.attachCdpToTarget = function () {
-  var _ref3 = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(host, port, targetId) {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(host, port, targetId) {
     var client;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {

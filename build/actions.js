@@ -44,7 +44,7 @@ var _require = require('./util'),
 
 
 exports.inject = function () {
-  var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(moduleOrScript) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(moduleOrScript) {
     var file, buff;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -125,7 +125,7 @@ exports.inject = function () {
  * @param {string} src - Url to remote JavaScript file
  */
 exports.injectRemoteScript = function () {
-  var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(src) {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(src) {
     var result;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
@@ -171,7 +171,7 @@ exports.injectRemoteScript = function () {
  * @param {string} script - Code to be injected and evaluated in the DOM
  */
 exports.injectScript = function () {
-  var _ref3 = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(script) {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(script) {
     var result;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
@@ -214,7 +214,7 @@ exports.injectScript = function () {
  * @param args {*} - The arguments to pass to the function
  */
 exports.evaluate = function () {
-  var _ref4 = _asyncToGenerator(regeneratorRuntime.mark(function _callee4(fn) {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(fn) {
     for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       args[_key - 1] = arguments[_key];
     }
@@ -261,7 +261,7 @@ exports.evaluate = function () {
  * @param args {*} - The arguments to pass to the function
  */
 exports.evaluateAsync = function () {
-  var _ref5 = _asyncToGenerator(regeneratorRuntime.mark(function _callee5(fn) {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(fn) {
     for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
       args[_key2 - 1] = arguments[_key2];
     }
@@ -302,7 +302,7 @@ exports.evaluateAsync = function () {
  * @param args {*} - The arguments to pass to the function
  */
 exports.evaluateOnNode = function () {
-  var _ref6 = _asyncToGenerator(regeneratorRuntime.mark(function _callee6(node, fn) {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(node, fn) {
     for (var _len3 = arguments.length, args = Array(_len3 > 2 ? _len3 - 2 : 0), _key3 = 2; _key3 < _len3; _key3++) {
       args[_key3 - 2] = arguments[_key3];
     }
@@ -350,7 +350,7 @@ exports.evaluateOnNode = function () {
  * have to wait after calling the "Page.navigate" method
  */
 exports.goTo = function () {
-  var _ref7 = _asyncToGenerator(regeneratorRuntime.mark(function _callee7(url) {
+  var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(url) {
     var _this = this;
 
     var opt = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -414,7 +414,7 @@ exports.goTo = function () {
  * @return {object} - Object containing type and value of the element
  */
 exports.getNodeValue = function () {
-  var _ref9 = _asyncToGenerator(regeneratorRuntime.mark(function _callee8(node) {
+  var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(node) {
     var nodeAttrs, value;
     return regeneratorRuntime.wrap(function _callee8$(_context8) {
       while (1) {
@@ -455,7 +455,7 @@ exports.getNodeValue = function () {
  * @return {object} - Object containing type and value of the element
  */
 exports.getValue = function () {
-  var _ref10 = _asyncToGenerator(regeneratorRuntime.mark(function _callee9(selector, frameId) {
+  var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(selector, frameId) {
     var node, htmlObjectType, value, textareaEvaluate;
     return regeneratorRuntime.wrap(function _callee9$(_context9) {
       while (1) {
@@ -531,7 +531,7 @@ exports.getValue = function () {
  * @param {string} value - The value to set the node to (it may be an array of values when the node is a multiple "HTMLSelectElement")
  */
 exports.setNodeValue = function () {
-  var _ref11 = _asyncToGenerator(regeneratorRuntime.mark(function _callee10(node, value) {
+  var _ref11 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10(node, value) {
     var htmlObjectType, selectOptions, selectedValuesArray, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, option, optionValue;
 
     return regeneratorRuntime.wrap(function _callee10$(_context10) {
@@ -683,7 +683,7 @@ exports.setNodeValue = function () {
  * @param {string} frameId - The FrameID where the selector should be searched
  */
 exports.setValue = function () {
-  var _ref12 = _asyncToGenerator(regeneratorRuntime.mark(function _callee11(selector, value, frameId) {
+  var _ref12 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee11(selector, value, frameId) {
     var node, htmlObjectType;
     return regeneratorRuntime.wrap(function _callee11$(_context11) {
       while (1) {
@@ -744,7 +744,7 @@ exports.setValue = function () {
  * @param {string} frameId - The FrameID where the selector should be searched
  */
 exports.fill = function () {
-  var _ref13 = _asyncToGenerator(regeneratorRuntime.mark(function _callee12(selector, value, frameId) {
+  var _ref13 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee12(selector, value, frameId) {
     var node, nodeAttrs, htmlObjectType, type, supportedTypes, isValidInput, isTextArea;
     return regeneratorRuntime.wrap(function _callee12$(_context12) {
       while (1) {
@@ -812,7 +812,7 @@ exports.fill = function () {
  * @param {string} frameId - The FrameID where the selector should be searched
  */
 exports.clear = function () {
-  var _ref14 = _asyncToGenerator(regeneratorRuntime.mark(function _callee13(selector, frameId) {
+  var _ref14 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee13(selector, frameId) {
     var node;
     return regeneratorRuntime.wrap(function _callee13$(_context13) {
       while (1) {
@@ -849,7 +849,7 @@ exports.clear = function () {
  * @return {NodeId Object} - NodeId Object (+info: https://chromedevtools.github.io/devtools-protocol/tot/DOM/#type-NodeId)
  */
 exports.querySelector = function () {
-  var _ref15 = _asyncToGenerator(regeneratorRuntime.mark(function _callee14(selector, frameId) {
+  var _ref15 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee14(selector, frameId) {
     var DOM, _document, node;
 
     return regeneratorRuntime.wrap(function _callee14$(_context14) {
@@ -928,7 +928,7 @@ exports.querySelector = function () {
  * @param {string} frameId - The FrameID where the selector should be searched
  */
 exports.focus = function () {
-  var _ref16 = _asyncToGenerator(regeneratorRuntime.mark(function _callee15(selector, frameId) {
+  var _ref16 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee15(selector, frameId) {
     var node;
     return regeneratorRuntime.wrap(function _callee15$(_context15) {
       while (1) {
@@ -977,7 +977,7 @@ exports.focus = function () {
  * @param {object} options - Lets you send keys like control & shift
  */
 exports.type = function () {
-  var _ref17 = _asyncToGenerator(regeneratorRuntime.mark(function _callee16(selector, text, frameId, opts) {
+  var _ref17 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee16(selector, text, frameId, opts) {
     var options, computeModifier, modifiers, isSpecialChar, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, key;
 
     return regeneratorRuntime.wrap(function _callee16$(_context16) {
@@ -1138,7 +1138,7 @@ exports.type = function () {
  * @param {object} options - Lets you send keys like control & shift
  */
 exports.typeText = function () {
-  var _ref18 = _asyncToGenerator(regeneratorRuntime.mark(function _callee17(text, opts) {
+  var _ref18 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee17(text, opts) {
     var options, computeModifier, modifiers, isSpecialChar, _iteratorNormalCompletion3, _didIteratorError3, _iteratorError3, _iterator3, _step3, key;
 
     return regeneratorRuntime.wrap(function _callee17$(_context17) {
@@ -1285,7 +1285,7 @@ exports.typeText = function () {
  * @param {string} frameId - The FrameID where the selector should be searched
  */
 exports.select = function () {
-  var _ref19 = _asyncToGenerator(regeneratorRuntime.mark(function _callee18(selector, value, frameId) {
+  var _ref19 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee18(selector, value, frameId) {
     var node;
     return regeneratorRuntime.wrap(function _callee18$(_context18) {
       while (1) {
@@ -1332,7 +1332,7 @@ exports.select = function () {
  * @see {@link https://chromedevtools.github.io/devtools-protocol/tot/Input/#method-dispatchKeyEvent}
  */
 exports.keyboardEvent = function () {
-  var _ref20 = _asyncToGenerator(regeneratorRuntime.mark(function _callee19(type, key, modifier) {
+  var _ref20 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee19(type, key, modifier) {
     var windowsVirtualKeyCode = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
     var parameters;
     return regeneratorRuntime.wrap(function _callee19$(_context19) {
@@ -1377,7 +1377,7 @@ exports.keyboardEvent = function () {
  * @param {number} time - Ammount of ms to wait
  */
 exports.wait = function () {
-  var _ref21 = _asyncToGenerator(regeneratorRuntime.mark(function _callee20(time) {
+  var _ref21 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee20(time) {
     return regeneratorRuntime.wrap(function _callee20$(_context20) {
       while (1) {
         switch (_context20.prev = _context20.next) {
@@ -1407,7 +1407,7 @@ exports.wait = function () {
  *
  */
 exports.onConsole = function () {
-  var _ref22 = _asyncToGenerator(regeneratorRuntime.mark(function _callee21(listener) {
+  var _ref22 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee21(listener) {
     return regeneratorRuntime.wrap(function _callee21$(_context21) {
       while (1) {
         switch (_context21.prev = _context21.next) {
@@ -1435,7 +1435,7 @@ exports.onConsole = function () {
  * @param {number} timeout - The timeout in ms. (Default: "loadPageTimeout" property in the browser instance options)
  */
 exports.waitForPageToLoad = function () {
-  var _ref23 = _asyncToGenerator(regeneratorRuntime.mark(function _callee22(timeout) {
+  var _ref23 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee22(timeout) {
     var _this2 = this;
 
     return regeneratorRuntime.wrap(function _callee22$(_context22) {
@@ -1473,7 +1473,7 @@ exports.waitForPageToLoad = function () {
  * @return {object} - List of frames, with childFrames
  */
 exports.waitForFrameToLoad = function () {
-  var _ref24 = _asyncToGenerator(regeneratorRuntime.mark(function _callee23(url, timeout) {
+  var _ref24 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee23(url, timeout) {
     var _this3 = this;
 
     var frames, frame;
@@ -1546,7 +1546,7 @@ exports.waitForFrameToLoad = function () {
  * @param {number} timeout - The timeout in ms. (Default: "loadPageTimeout" property in the browser instance options)
  */
 exports.waitForSelectorToLoad = function () {
-  var _ref25 = _asyncToGenerator(regeneratorRuntime.mark(function _callee24(selector, interval, timeout) {
+  var _ref25 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee24(selector, interval, timeout) {
     var startDate, exists, diff;
     return regeneratorRuntime.wrap(function _callee24$(_context24) {
       while (1) {
@@ -1621,7 +1621,7 @@ exports.waitForSelectorToLoad = function () {
  * @see {@link https://chromedevtools.github.io/devtools-protocol/tot/Input/#method-dispatchMouseEvent}
  */
 exports.mouseEvent = function () {
-  var _ref27 = _asyncToGenerator(regeneratorRuntime.mark(function _callee25(_ref26) {
+  var _ref27 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee25(_ref26) {
     var _ref26$type = _ref26.type,
         type = _ref26$type === undefined ? 'mousePressed' : _ref26$type,
         _ref26$x = _ref26.x,
@@ -1663,7 +1663,7 @@ exports.mouseEvent = function () {
  * @param {string} frameId - The FrameID where the selector should be searched
  */
 exports.click = function () {
-  var _ref28 = _asyncToGenerator(regeneratorRuntime.mark(function _callee26(selector, frameId) {
+  var _ref28 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee26(selector, frameId) {
     var node;
     return regeneratorRuntime.wrap(function _callee26$(_context26) {
       while (1) {
@@ -1702,7 +1702,7 @@ exports.click = function () {
  * @param {string} frameId - The FrameID where the selector should be searched
  */
 exports.clickOnSelector = function () {
-  var _ref29 = _asyncToGenerator(regeneratorRuntime.mark(function _callee27(selector, frameId) {
+  var _ref29 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee27(selector, frameId) {
     var node, nodeCentroid;
     return regeneratorRuntime.wrap(function _callee27$(_context27) {
       while (1) {
@@ -1756,7 +1756,7 @@ exports.clickOnSelector = function () {
  * @return {object} - { x, y } object with the coordinates
  */
 exports.getNodeCentroid = function () {
-  var _ref30 = _asyncToGenerator(regeneratorRuntime.mark(function _callee28(nodeId) {
+  var _ref30 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee28(nodeId) {
     var boxModel;
     return regeneratorRuntime.wrap(function _callee28$(_context28) {
       while (1) {
@@ -1791,7 +1791,7 @@ exports.getNodeCentroid = function () {
  * Get the browser cookies
  * @return {object} - Object with all the cookies
  */
-exports.getCookies = _asyncToGenerator(regeneratorRuntime.mark(function _callee29() {
+exports.getCookies = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee29() {
   return regeneratorRuntime.wrap(function _callee29$(_context29) {
     while (1) {
       switch (_context29.prev = _context29.next) {
@@ -1826,7 +1826,7 @@ exports.getCookies = _asyncToGenerator(regeneratorRuntime.mark(function _callee2
  * @return {boolean} - True if successfully set cookie
  */
 exports.setCookie = function () {
-  var _ref32 = _asyncToGenerator(regeneratorRuntime.mark(function _callee30(name, value) {
+  var _ref32 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee30(name, value) {
     var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
     var setCookieOptions;
     return regeneratorRuntime.wrap(function _callee30$(_context30) {
@@ -1855,7 +1855,7 @@ exports.setCookie = function () {
 /**
  * Clear the browser cookies
  */
-exports.clearBrowserCookies = _asyncToGenerator(regeneratorRuntime.mark(function _callee31() {
+exports.clearBrowserCookies = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee31() {
   return regeneratorRuntime.wrap(function _callee31$(_context31) {
     while (1) {
       switch (_context31.prev = _context31.next) {
@@ -1881,7 +1881,7 @@ exports.clearBrowserCookies = _asyncToGenerator(regeneratorRuntime.mark(function
  */
 // TODO: make use of the "frameId" parameter in this fn, and avoid using this.evaluate()
 exports.exist = function () {
-  var _ref34 = _asyncToGenerator(regeneratorRuntime.mark(function _callee32(selector, frameId) {
+  var _ref34 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee32(selector, frameId) {
     var exist;
     return regeneratorRuntime.wrap(function _callee32$(_context32) {
       while (1) {
@@ -1925,7 +1925,7 @@ exports.exist = function () {
  */
 // TODO: make use of the "frameId" parameter in this fn, and avoid using this.evaluate()
 exports.visible = function () {
-  var _ref35 = _asyncToGenerator(regeneratorRuntime.mark(function _callee33(selector, frameId) {
+  var _ref35 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee33(selector, frameId) {
     var visible;
     return regeneratorRuntime.wrap(function _callee33$(_context33) {
       while (1) {
@@ -1983,7 +1983,7 @@ exports.visible = function () {
  * @return {string} - Binary or Base64 string with the image data
  */
 exports.getScreenshot = function () {
-  var _ref37 = _asyncToGenerator(regeneratorRuntime.mark(function _callee34(_ref36) {
+  var _ref37 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee34(_ref36) {
     var _ref36$format = _ref36.format,
         format = _ref36$format === undefined ? 'png' : _ref36$format,
         quality = _ref36.quality,
@@ -2094,7 +2094,7 @@ exports.getScreenshot = function () {
  *    @property {boolean}   [fullPage] - If true, captures the full page height
  * @return {string} - Binary or Base64 string with the image data
  */
-exports.saveScreenshot = _asyncToGenerator(regeneratorRuntime.mark(function _callee35() {
+exports.saveScreenshot = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee35() {
   var fileName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : `screenshot-${Date.now()}`;
 
   var _ref39 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
@@ -2106,6 +2106,7 @@ exports.saveScreenshot = _asyncToGenerator(regeneratorRuntime.mark(function _cal
       selector = _ref39.selector,
       fullPage = _ref39.fullPage;
 
+  var screenshot;
   return regeneratorRuntime.wrap(function _callee35$(_context35) {
     while (1) {
       switch (_context35.prev = _context35.next) {
@@ -2128,8 +2129,7 @@ exports.saveScreenshot = _asyncToGenerator(regeneratorRuntime.mark(function _cal
           throw new Error(`Invalid format "${format}" for the screenshot. Allowed values: "jpeg" and "png".`);
 
         case 6:
-          _context35.t0 = fs;
-          _context35.next = 9;
+          _context35.next = 8;
           return this.getScreenshot({
             format,
             quality,
@@ -2137,18 +2137,18 @@ exports.saveScreenshot = _asyncToGenerator(regeneratorRuntime.mark(function _cal
             fromSurface,
             selector,
             fullPage
-          });
+          }, true);
 
-        case 9:
-          _context35.t1 = _context35.sent;
-          _context35.next = 12;
-          return _context35.t0.writeFile.call(_context35.t0, `${fileName}.${format}`, _context35.t1, true);
+        case 8:
+          screenshot = _context35.sent;
+          _context35.next = 11;
+          return fs.writeFile(`${fileName}.${format}`, screenshot);
 
-        case 12:
+        case 11:
           debug(`:: saveScreenshot => Screenshot saved!`);
           return _context35.abrupt('return', `${fileName}.${format}`);
 
-        case 14:
+        case 13:
         case 'end':
           return _context35.stop();
       }
@@ -2174,7 +2174,7 @@ exports.saveScreenshot = _asyncToGenerator(regeneratorRuntime.mark(function _cal
  * @param {boolean} returnBinary - If true, returns as binary. Otherwise, returns a base64 string
  * @return {string} - Binary or Base64 string with the PDF data
  */
-exports.printToPDF = _asyncToGenerator(regeneratorRuntime.mark(function _callee36() {
+exports.printToPDF = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee36() {
   var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var returnBinary = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   var pdf;
@@ -2222,7 +2222,7 @@ exports.printToPDF = _asyncToGenerator(regeneratorRuntime.mark(function _callee3
  *    @property {string} pageRanges - Paper ranges to print, e.g., '1-5, 8, 11-13'. Defaults to the empty string, which means print all pages.
  * }} options - PDF options
  */
-exports.savePdf = _asyncToGenerator(regeneratorRuntime.mark(function _callee37() {
+exports.savePdf = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee37() {
   var fileName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : `pdf-${Date.now()}`;
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   return regeneratorRuntime.wrap(function _callee37$(_context37) {
@@ -2260,7 +2260,7 @@ exports.savePdf = _asyncToGenerator(regeneratorRuntime.mark(function _callee37()
  * @return {Viewport} - Object with the viewport properties (https://chromedevtools.github.io/devtools-protocol/tot/Page/#type-Viewport)
  */
 exports.getSelectorViewport = function () {
-  var _ref42 = _asyncToGenerator(regeneratorRuntime.mark(function _callee38(selector, frameId) {
+  var _ref42 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee38(selector, frameId) {
     var node, boxModel, viewport;
     return regeneratorRuntime.wrap(function _callee38$(_context38) {
       while (1) {
@@ -2290,7 +2290,7 @@ exports.getSelectorViewport = function () {
             };
 
 
-            debug(`:: getSelectorViewport => Viewport: "${viewport}"`);
+            debug(`:: getSelectorViewport => Viewport: "${JSON.stringify(viewport)}"`);
 
             return _context38.abrupt('return', viewport);
 
@@ -2311,7 +2311,7 @@ exports.getSelectorViewport = function () {
  * Get the list of frames in the loaded page
  * @return {object} - List of frames, with childFrames
  */
-exports.getFrames = _asyncToGenerator(regeneratorRuntime.mark(function _callee39() {
+exports.getFrames = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee39() {
   var frames, resourceTree;
   return regeneratorRuntime.wrap(function _callee39$(_context39) {
     while (1) {
@@ -2343,7 +2343,7 @@ exports.getFrames = _asyncToGenerator(regeneratorRuntime.mark(function _callee39
 /**
  * Resize viewports of the page to full screen size
  */
-exports.resizeFullScreen = _asyncToGenerator(regeneratorRuntime.mark(function _callee40() {
+exports.resizeFullScreen = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee40() {
   var _client, DOM, Emulation, _ref45, documentNodeId, _ref46, bodyNodeId, deviceMetrics, _ref47, height, fullPageViewport;
 
   return regeneratorRuntime.wrap(function _callee40$(_context40) {
@@ -2383,7 +2383,8 @@ exports.resizeFullScreen = _asyncToGenerator(regeneratorRuntime.mark(function _c
             width: deviceMetrics.width,
             height: height,
             deviceScaleFactor: deviceMetrics.deviceScaleFactor,
-            mobile: deviceMetrics.mobile
+            mobile: deviceMetrics.mobile,
+            fitWindow: deviceMetrics.fitWindow
           });
 
         case 19:
@@ -2420,7 +2421,7 @@ exports.resizeFullScreen = _asyncToGenerator(regeneratorRuntime.mark(function _c
  * @param {boolean} [accept=true] - Whether to accept or dismiss the dialog
  * @param {string} [promptText] - The text to enter into the dialog prompt before accepting. Used only if this is a prompt dialog.
  */
-exports.handleDialog = _asyncToGenerator(regeneratorRuntime.mark(function _callee41() {
+exports.handleDialog = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee41() {
   var accept = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
   var promptText = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
   return regeneratorRuntime.wrap(function _callee41$(_context41) {
@@ -2454,7 +2455,7 @@ exports.handleDialog = _asyncToGenerator(regeneratorRuntime.mark(function _calle
  * @return {object} - Request status and data
  */
 exports.post = function () {
-  var _ref49 = _asyncToGenerator(regeneratorRuntime.mark(function _callee42(url) {
+  var _ref49 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee42(url) {
     var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
     var requestData, requestOptions;
