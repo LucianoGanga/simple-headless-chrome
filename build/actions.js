@@ -2537,3 +2537,100 @@ exports.post = function () {
     return _ref49.apply(this, arguments);
   };
 }();
+
+/**
+ * Make an ajax call that defaults to content-type JSON
+ * @param {string} url - The URL or path to call
+ * @param {string} [action] - The request verb type, defaults to GET
+ * @param {object} [data] - The data object to be posted
+ * @param {object} [options] - Options of the request
+ * @return {object} - Request status and data
+ */
+exports.ajax = function () {
+  var _ref50 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee43(url) {
+    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'GET';
+    var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+    var requestData, requestOptions;
+    return regeneratorRuntime.wrap(function _callee43$(_context43) {
+      while (1) {
+        switch (_context43.prev = _context43.next) {
+          case 0:
+            debug(`:: post => Calling ${action} on URL "${url}" data: ${JSON.stringify(data, null, 2)} with options ${options}...`);
+            browserIsInitialized.call(this);
+
+            if (url) {
+              _context43.next = 4;
+              break;
+            }
+
+            throw new Error(`An URL must be supplied in order to make the AJAX request`);
+
+          case 4:
+            console.log(url);
+            requestData = data;
+
+            if (typeof data === 'object') {
+              requestData = objectToEncodedUri(data);
+            }
+            console.log('past here #1');
+            requestOptions = Object.assign({
+              contentType: 'application/json',
+              timeout: this.options.browser.loadPageTimeout
+            }, options);
+
+
+            console.log('past here #2');
+
+            return _context43.abrupt('return', this.evaluateAsync(function (url, action, data, options) {
+              return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                console.log('past here #3');
+                xhr.open(action, url);
+                xhr.setRequestHeader('Content-Type', options.contentType);
+                xhr.onload = function (e) {
+                  console.log('loaded properly');
+                  resolve({
+                    responseText: xhr.responseText,
+                    status: xhr.status,
+                    response: xhr.response,
+                    responseType: xhr.responseType,
+                    responseURL: xhr.responseURL,
+                    statusText: xhr.statusText,
+                    responseXML: xhr.responseXML,
+                    readyState: xhr.readyState
+                  });
+                };
+                xhr.onerror = function (e) {
+                  console.log('got an error!!');
+                  var error = new Error(`Error while making request ${action} to URL "${url}"`);
+                  error.requestData = data;
+                  error.options = options;
+                  error.response = {
+                    responseText: xhr.responseText,
+                    status: xhr.status,
+                    response: xhr.response,
+                    responseType: xhr.responseType,
+                    responseURL: xhr.responseURL,
+                    statusText: xhr.statusText,
+                    responseXML: xhr.responseXML,
+                    readyState: xhr.readyState
+                  };
+                  reject(error);
+                };
+                data ? xhr.send(data) : xhr.send();
+              });
+            }, url, action, requestData, requestOptions));
+
+          case 11:
+          case 'end':
+            return _context43.stop();
+        }
+      }
+    }, _callee43, this);
+  }));
+
+  return function (_x79) {
+    return _ref50.apply(this, arguments);
+  };
+}();
