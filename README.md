@@ -2,6 +2,14 @@
 
 # simple-headless-chrome
 
+# This project is looking for a maintainer
+If you'd like to help others in this project, you're more than welcome! I made this project for work and I wanted to make it available for other people, but usually I don't have the time I'd like to have to maintain the project. So, if you're interested, and want to help with this, just let me know :) 
+
+It will be mostly having help to answer some doubts and issues. 
+
+Thanks!
+
+
 ## Important version >= 3.3.0
 
 Version 3.3.0 includes a new feature that allows managing browser tabs. 
